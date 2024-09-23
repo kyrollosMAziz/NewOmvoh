@@ -2499,7 +2499,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7287,6 +7287,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonToSkipTutorial: {fileID: 1684097037}
+  _TutorialAudioSource: {fileID: 1684097039}
+  _TutorialInfromationClip: {fileID: 8300000, guid: ac3849d5ebe013a43bd17a0039a936f6, type: 3}
+  _GuideTutorial: {fileID: 8300000, guid: e9a7ec42b6c242e438543f460b2e2303, type: 3}
+  _cubeToHold: {fileID: 1684097038}
 --- !u!1 &744866359
 GameObject:
   m_ObjectHideFlags: 0
@@ -15998,6 +16002,10 @@ PrefabInstance:
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6330974420112731056, guid: ed5fdb8d3e523e94ca6d8a239d40615a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6817067504802018576, guid: ed5fdb8d3e523e94ca6d8a239d40615a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16062,7 +16070,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1684097037 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6817067504802018576, guid: ed5fdb8d3e523e94ca6d8a239d40615a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6330974420112731056, guid: ed5fdb8d3e523e94ca6d8a239d40615a, type: 3}
+  m_PrefabInstance: {fileID: 1684097035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1684097038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5887576222586575187, guid: ed5fdb8d3e523e94ca6d8a239d40615a, type: 3}
+  m_PrefabInstance: {fileID: 1684097035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &1684097039 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 191437498602969446, guid: ed5fdb8d3e523e94ca6d8a239d40615a, type: 3}
   m_PrefabInstance: {fileID: 1684097035}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1701800211
