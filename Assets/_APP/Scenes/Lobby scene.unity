@@ -4456,12 +4456,13 @@ Transform:
   m_GameObject: {fileID: 443485164}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09478022, y: 2.120736, z: 1.3323945}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 742248045}
   - {fileID: 99320471}
+  - {fileID: 2046614229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457609585
@@ -19237,6 +19238,83 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041928516}
   m_Mesh: {fileID: -7331570333137539377, guid: 3197b2efc2fdb9c49add14c6200683d8, type: 3}
+--- !u!1 &2046614228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2046614229}
+  - component: {fileID: 2046614230}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2046614229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046614228}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 443485165}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2046614230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046614228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0986f4157c213468552288010f495e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMuted: 0
+  music: {fileID: 0}
+  soundClips:
+  - clip: {fileID: 0}
+    clipName: MeetingBgSFX
+    Volume: 1
+    looping: 1
+    audioSource: {fileID: 0}
+  - clip: {fileID: 0}
+    clipName: HeartbeatSFX
+    Volume: 1
+    looping: 1
+    audioSource: {fileID: 0}
+  - clip: {fileID: 0}
+    clipName: FootSteps
+    Volume: 1
+    looping: 1
+    audioSource: {fileID: 0}
+  - clip: {fileID: 0}
+    clipName: RunningWaterSFX
+    Volume: 1
+    looping: 1
+    audioSource: {fileID: 0}
+  musicClips: []
+  clipsRandom: []
+  effectsSource: {fileID: 0}
+  musicSource: {fileID: 0}
+  lowPitchRange: 0.95
+  highPitchRange: 1.05
+  normalMixer: {fileID: 0}
+  lowMixer: {fileID: 0}
+  audiosources: []
+  currentPlaying: {fileID: 0}
 --- !u!1 &2050847698
 GameObject:
   m_ObjectHideFlags: 0
