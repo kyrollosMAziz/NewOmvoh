@@ -60,7 +60,7 @@ public class Pin : MonoBehaviour, IFailedPinCode
             screenText.text = "----";
             counter += 1;
         }
-        if (counter > 2)
+        if (counter > 2) //number of times the user tries the pin
         {
             PinCode.Instance.NotifyPins();
             #region PlayReplayLogic
