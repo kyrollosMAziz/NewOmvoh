@@ -1,0 +1,45 @@
+2024-09-25 11:05:15.110 [1] WARN BhapticsPlayer.Window.PortalWindow..ctor(): PortalWindow
+2024-09-25 11:05:16.532 [1] WARN BhapticsPlayer.Window.PortalWindow+<<-ctor>b__8_0>d.MoveNext(): PortalWindow Loaded
+2024-09-25 11:05:16.662 [1] WARN BhapticsPlayer.Internal.LocalDbRepository.InitializeDatabase(): InitializeDatabase
+2024-09-25 11:05:17.805 [1] EROR BhapticsPlayer.Audio.UserService.GetUser(): User not ready.
+2024-09-25 11:05:17.807 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:17.810 [1] EROR BhapticsPlayer.Audio.UserService.GetUser(): User not ready.
+2024-09-25 11:05:17.810 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:17.941 [1] EROR BhapticsPlayer.ViewModel.PortalMenuViewModel.InitRestMenus(): InitRestMenus
+2024-09-25 11:05:17.956 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:17.999 [9] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:18.000 [9] WARN BhapticsPlayer.Repository.ContentReviewRepository+<GetMySaveList>d__14.MoveNext(): GetMySaveList user null
+2024-09-25 11:05:18.055 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:18.594 [8] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:18.633 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:18.640 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:18.870 [1] WARN BhapticsPlayer.View.PortalWindowMainView+<<-ctor>b__1_0>d.MoveNext(): PortalWindowMainView Loaded
+2024-09-25 11:05:18.988 [1] WARN BhapticsPlayer.Window.PortalWindow+<SetPlayerData>d__14.MoveNext(): Bluetooth Version: V5_2
+2024-09-25 11:05:19.077 [1] WARN BhapticsPlayer.View.PortalWindowMainView+<<-ctor>b__1_0>d.MoveNext(): LastVersion: 41
+2024-09-25 11:05:19.381 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:19.444 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:19.454 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:19.460 [1] EROR BhapticsPlayer.ViewModel.ProfileMyViewModel+<>c__DisplayClass106_0.<Init>b__0(System.Object, System.ComponentModel.PropertyChangedEventArgs): Changed Settings
+2024-09-25 11:05:19.469 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:19.470 [1] EROR BhapticsPlayer.ViewModel.ProfileMyViewModel+<>c__DisplayClass106_0.<Init>b__0(System.Object, System.ComponentModel.PropertyChangedEventArgs): Changed IsEnable
+2024-09-25 11:05:19.471 [1] EROR BhapticsPlayer.ViewModel.ProfileMyViewModel+<>c__DisplayClass106_0.<Init>b__0(System.Object, System.ComponentModel.PropertyChangedEventArgs): Changed CanHapticResolution
+2024-09-25 11:05:19.504 [1] WARN BhapticsPlayer.Repository.AccountRepository+<GetMyPlayedProfiles>d__14.MoveNext(): GetMyPlayedProfiles token null
+2024-09-25 11:05:19.623 [19] EROR BhapticsPlayer.Utils.SteamUtils.GetSteamInstalledDir(): GetSteamInstalledDir: SOFTWARE\Wow6432Node\Valve\Steam, C:\Program Files (x86)\Steam
+2024-09-25 11:05:19.641 [19] EROR BhapticsPlayer.Utils.SteamUtils.GetSteamLibFolder(): path C:\Program Files (x86)\Steam
+2024-09-25 11:05:19.678 [19] EROR BhapticsPlayer.Utils.SteamUtils.GetSteamInstalledDir(): GetSteamInstalledDir: SOFTWARE\Wow6432Node\Valve\Steam, C:\Program Files (x86)\Steam
+2024-09-25 11:05:19.696 [19] EROR BhapticsPlayer.Utils.SteamUtils.GetSteamInstalledDir(): GetSteamInstalledDir: SOFTWARE\Wow6432Node\Valve\Steam, C:\Program Files (x86)\Steam
+2024-09-25 11:05:19.705 [19] EROR BhapticsPlayer.Utils.SteamUtils.GetSteamLibFolder(): path C:\Program Files (x86)\Steam
+2024-09-25 11:05:19.733 [19] EROR BhapticsPlayer.Utils.SteamUtils.GetSteamInstalledDir(): GetSteamInstalledDir: SOFTWARE\Wow6432Node\Valve\Steam, C:\Program Files (x86)\Steam
+2024-09-25 11:05:20.455 [1] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:20.456 [1] WARN BhapticsPlayer.Repository.ContentReviewRepository+<GetMySaveList>d__14.MoveNext(): GetMySaveList user null
+2024-09-25 11:05:22.159 [15] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:22.253 [33] WARN BhapticsPlayer.WebSocket.PlayerServerBehavior.OnOpen(): PlayerServerBehavior OnOpen com.bhaptics.developers, bHaptics Developer Portal
+2024-09-25 11:05:22.256 [33] WARN BhapticsPlayer.WebSocket.PlayerServerBehavior.OnOpen(): OnOpen(333b22cf6cd94bea8c9c61faafc96c35) # of Clients : 2
+2024-09-25 11:05:22.534 [15] EROR BhapticsPlayer.NewSDK.Sdk2MessageRepository.GetHapticPattern(System.String, System.String, System.Int32): GetHapticPattern WebException(): The remote server returned an error: (404) Not Found.
+2024-09-25 11:05:22.538 [23] EROR BhapticsPlayer.Websocket.HapticPatternBehavior+<>c__DisplayClass39_1.<CloseConnection>b__1(System.Boolean): CloseConnection [{"Type":"ServerReady","Message":"Failed"}] True
+2024-09-25 11:05:30.667 [27] WARN BhapticsPlayer.Login.UserRepository.GetCurrentUser(): GetCurrentUser User null
+2024-09-25 11:05:30.990 [13] WARN BhapticsPlayer.Haptic.AthFilePlayer.Register(BhapticsPlayer.Haptic.RegisterAthRequest): Register() Does not have an app. 66f3c2ace1de07358d808fca create one.
+2024-09-25 11:05:30.996 [27] EROR BhapticsPlayer.Websocket.HapticPatternBehavior.OnMessage(WebSocketSharp.MessageEventArgs): OnMessage : SdkRequestAuthInit
+2024-09-25 11:05:30.998 [27] EROR BhapticsPlayer.Websocket.HapticPatternBehavior.GetHapticDeployMessage(System.String): GetHapticDeployMessage() HapticDeployHttpMessage
+2024-09-25 11:05:43.614 [15] WARN BhapticsPlayer.WebSocket.PlayerServerBehavior.OnOpen(): PlayerServerBehavior OnOpen com.bhaptics.designer2, bHaptics Designer
+2024-09-25 11:05:43.615 [15] WARN BhapticsPlayer.WebSocket.PlayerServerBehavior.OnOpen(): OnOpen(62c3a133bb8642c09171214c7735103b) # of Clients : 2
