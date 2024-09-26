@@ -12,7 +12,7 @@ public class MeetingRoomManager : MonoBehaviour
     [SerializeField] AudioSource _meetingBgSFX;
     [SerializeField] AudioSource _heartbeatNormalSFX;
     [SerializeField] AudioSource _heartbeatLouderSFX;
-    [SerializeField] AudioSource _userBreathingSFX;
+    [SerializeField] AudioSource _heartbeatSlowSFX;
     [SerializeField] AudioSource _footSteps;
 
 
@@ -70,7 +70,7 @@ public class MeetingRoomManager : MonoBehaviour
         _meetingRoomAudioSource.PlayOneShot(_thisCantHappenMale);
         yield return new WaitForSeconds(_thisCantHappenMale.length + 1f);
 
-        _userBreathingSFX.Play();
+        _heartbeatSlowSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_howDoILeaveMale);
         yield return new WaitForSeconds(_howDoILeaveMale.length + 1f);
@@ -106,7 +106,7 @@ public class MeetingRoomManager : MonoBehaviour
         _meetingRoomAudioSource.PlayOneShot(_thisCantHappenFemale);
         yield return new WaitForSeconds(_thisCantHappenFemale.length + 1f);
 
-        _userBreathingSFX.Play();
+        _heartbeatSlowSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_howDoILeaveFemale);
         yield return new WaitForSeconds(_howDoILeaveFemale.length + 1f);

@@ -11,7 +11,7 @@ public class MeetingBathroomLogic : MonoBehaviour
     [Header("SFX")]
     [SerializeField] AudioSource _runningWaterSFX;
     [SerializeField] AudioSource _footstepsEchoSFX;
-    [SerializeField] AudioSource _breathSlowSFX;
+    [SerializeField] AudioSource _heartbeatSlowSFX;
 
     [Header("Make It Back")]
     [SerializeField] AudioClip _makeItBackMale;
@@ -60,12 +60,12 @@ public class MeetingBathroomLogic : MonoBehaviour
         yield return new WaitForSeconds(_myCoworkersMale.length + 1f);
 
         VignetteFadeController.Instance.FadeImageOut();
-        _breathSlowSFX.Play();
+        _heartbeatSlowSFX.Play();
         _runningWaterSFX.Stop();
         _footstepsEchoSFX.Stop();
         yield return new WaitForSeconds(1f);
 
-        _breathSlowSFX.Stop();
+        _heartbeatSlowSFX.Stop();
         _meetingRoomAudioSource.PlayOneShot(_howDoIExplainMale);
         yield return new WaitForSeconds(_howDoIExplainMale.length + 1f);
         _meetingRoomAudioSource.PlayOneShot(_thisCouldRuinMale);
@@ -87,12 +87,12 @@ public class MeetingBathroomLogic : MonoBehaviour
         yield return new WaitForSeconds(_myCoworkersFemale.length + 1f);
 
         VignetteFadeController.Instance.FadeImageOut();
-        _breathSlowSFX.Play();
+        _heartbeatSlowSFX.Play();
         _runningWaterSFX.Stop();
         _footstepsEchoSFX.Stop();
         yield return new WaitForSeconds(1f);
 
-        _breathSlowSFX.Stop();
+        _heartbeatSlowSFX.Stop();
         _meetingRoomAudioSource.PlayOneShot(_howDoIExplainFemale);
         yield return new WaitForSeconds(_howDoIExplainFemale.length + 1f);
         _meetingRoomAudioSource.PlayOneShot(_thisCouldRuinFemale);
