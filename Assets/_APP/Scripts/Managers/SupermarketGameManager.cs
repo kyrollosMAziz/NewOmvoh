@@ -30,11 +30,11 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     private AudioClip _maleIntroductionClip1;
 
     [SerializeField] private AudioClip _maleIntroductionClip2;
-    [SerializeField] private AudioClip _maleIntroductionclip3;
+    [SerializeField] private AudioClip _maleIntroductionClip3;
 
     [SerializeField] private AudioClip _femaleIntroductionClip1;
     [SerializeField] private AudioClip _femaleIntroductionClip2;
-    [SerializeField] private AudioClip _femaleIntroductionclip3;
+    [SerializeField] private AudioClip _femaleIntroductionClip3;
 
     [Header("Bathroom Audio Clips")] [SerializeField]
     private AudioClip _maleBathroomClip1;
@@ -76,21 +76,24 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     private IEnumerator StartIntroductionBehavior()
     {
         yield return new WaitForSeconds(2f);
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleIntroductionClip1
-            : _femaleIntroductionClip1);
+            : _femaleIntroductionClip1;
+        _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         _userHeartbeatSfx.clip = _speedHeartbeat;
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleIntroductionClip2
-            : _femaleIntroductionClip2);
+            : _femaleIntroductionClip2;
+        _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
-            ? _maleIntroductionClip2
-            : _femaleIntroductionClip2);
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
+            ? _maleIntroductionClip3
+            : _femaleIntroductionClip3;
+        _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
 
@@ -114,9 +117,10 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
     private IEnumerator StartBathroomBehavior()
     {
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleBathroomClip1
-            : _femaleBathroomClip1);
+            : _femaleBathroomClip1;
+        _voiceOverAudioSource.Play();
 
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
@@ -126,17 +130,20 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
     public IEnumerator OnBathroomKeypadInteraction()
     {
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleBathroomClip2
-            : _femaleBathroomClip2);
+            : _femaleBathroomClip2;
+        _voiceOverAudioSource.Play();
 
         _userHeartbeatSfx.volume = 1;
         _backGroundEffect.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip =_gameData.playerGender == GenderEnum.Male
             ? _maleBathroomClip3
-            : _femaleBathroomClip3);
+            : _femaleBathroomClip3;
+        _voiceOverAudioSource.Play();
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
@@ -159,25 +166,40 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
     private IEnumerator ExposureBehavior()
     {
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _malePublicExplosureClip1
-            : _femalePublicExplosureClip1);
+            : _femalePublicExplosureClip1;
+        _voiceOverAudioSource.Play();
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.PlayOneShot(_npcStartclip);
+        _voiceOverAudioSource.clip = _npcStartclip;
+        _voiceOverAudioSource.Play();
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.PlayOneShot(_npcPublicExplosureClip1);
+        _voiceOverAudioSource.clip = _npcPublicExplosureClip1;
+        _voiceOverAudioSource.Play();
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.PlayOneShot(_npcPublicExplosureClip2);
+        _voiceOverAudioSource.clip = _npcPublicExplosureClip2;
+        _voiceOverAudioSource.Play();
+        
         _userHeartbeatSfx.clip = _slowHeartbeat;
         _userHeartbeatSfx.Play();
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _malePublicExplosureClip2
-            : _femalePublicExplosureClip2);
+            : _femalePublicExplosureClip2;
+        _voiceOverAudioSource.Play();
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.PlayOneShot(_npcPublicExplosureClip3);
+        _voiceOverAudioSource.clip = _npcPublicExplosureClip3;
+        _voiceOverAudioSource.Play();
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.PlayOneShot(_npcPublicExplosureClip4);
+        _voiceOverAudioSource.clip = _npcPublicExplosureClip4;
+        _voiceOverAudioSource.Play();
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
@@ -188,14 +210,18 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     private IEnumerator StartOutroBehavior()
     {
         _backGroundEffect.gameObject.SetActive(false);
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip =_gameData.playerGender == GenderEnum.Male
             ? _maleOutroClip1
-            : _femaleOutroClip1);
+            : _femaleOutroClip1;
+        _voiceOverAudioSource.Play();
+     
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _userHeartbeatSfx.gameObject.SetActive(false);
-        _voiceOverAudioSource.PlayOneShot(_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip =_gameData.playerGender == GenderEnum.Male
             ? _maleOutroClip2
-            : _femaleOutroClip2);
+            : _femaleOutroClip2;
+        _voiceOverAudioSource.Play();
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         //close Scene
         HaptticManager.Instance.StopHapticLoop();
