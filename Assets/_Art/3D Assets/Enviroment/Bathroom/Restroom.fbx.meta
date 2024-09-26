@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 40311fa52c4c4994cb13e7deac1065ca
+guid: c398713dbc3d2c440bd6c6ddb91e15d1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emissive
+    second: {fileID: 2100000, guid: b3b6ea07047f056418f41ff3efde6616, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: restroom_1
+    second: {fileID: 2100000, guid: d395cfd3efe8ac140b0ab6c065f81a95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: restroom_2
+    second: {fileID: 2100000, guid: 1fb41033c0730fb409ef37590c71abb4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
