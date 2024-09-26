@@ -7,6 +7,14 @@ using UnityEngine.SceneManagement;
 public class MeetingRoomManager : MonoBehaviour
 {
     [SerializeField] AudioSource _meetingRoomAudioSource;
+    
+    [Header("SFX")]
+    [SerializeField] AudioSource _meetingBgSFX;
+    [SerializeField] AudioSource _heartbeatNormalSFX;
+    [SerializeField] AudioSource _heartbeatLouderSFX;
+    [SerializeField] AudioSource _userBreathingSFX;
+    [SerializeField] AudioSource _footSteps;
+
 
     [Header("Halfway Presentation")]
     [SerializeField] AudioClip _halfwayPresentationMale;
@@ -28,26 +36,11 @@ public class MeetingRoomManager : MonoBehaviour
     [SerializeField] AudioClip _thisIsUnprofessionelMale;
     [SerializeField] AudioClip _thisIsUnprofessionelFemale;
  
-    [Header("Make It Back")]
-    [SerializeField] AudioClip _makeItBackMale;
-    [SerializeField] AudioClip _makeItBackFemale;
-    
-    [Header("My Coworkers")]
-    [SerializeField] AudioClip _myCoworkersMale;
-    [SerializeField] AudioClip _myCoworkersFemale;
-
-    [Header("How do I explain")]
-    [SerializeField] AudioClip _howDoIExplainMale;
-    [SerializeField] AudioClip _howDoIExplainFemale;
-
-    [Header("This Could Ruin")]
-    [SerializeField] AudioClip _thisCouldRuinMale;
-    [SerializeField] AudioClip _thisCouldRuinFemale;
-
     [SerializeField] GameData _gameData;
     void Start()
     {
-        AudioManagerMain.instance.PlaySFX("MeetingBgSFX");
+        _meetingBgSFX.Play();
+        VignetteFadeController.Instance.FadeImageIn();
 
         if (_gameData.playerGender == GenderEnum.Female)
         {
@@ -63,20 +56,21 @@ public class MeetingRoomManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        AudioManagerMain.instance.PlaySFX("HeartbeatNormalSFX");
+        _heartbeatNormalSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_halfwayPresentationMale);
         yield return new WaitForSeconds(_halfwayPresentationMale.length + 1f);
 
-        AudioManagerMain.instance.PlaySFX("HeartbeatLouderSFX");
+        _heartbeatLouderSFX.Play();
+
         _meetingRoomAudioSource.PlayOneShot(_ohNoMale);
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);  
         yield return new WaitForSeconds(_ohNoMale.length + 1f);
 
         _meetingRoomAudioSource.PlayOneShot(_thisCantHappenMale);
         yield return new WaitForSeconds(_thisCantHappenMale.length + 1f);
-        
-        AudioManagerMain.instance.PlaySFX("UserBreathing");
+
+        _userBreathingSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_howDoILeaveMale);
         yield return new WaitForSeconds(_howDoILeaveMale.length + 1f);
@@ -86,10 +80,12 @@ public class MeetingRoomManager : MonoBehaviour
 
         HaptticManager.Instance.StopHapticLoop();
         VignetteFadeController.Instance.FadeImageOut();
-        AudioManagerMain.instance.PlaySFX("FootSteps");
+        _footSteps.Play();
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);  
         
         yield return new WaitForSeconds(3f);
+        HaptticManager.Instance.StopHapticLoop();
+
         SceneManager.LoadSceneAsync("MeetingBathroom");
 
     }
@@ -97,12 +93,12 @@ public class MeetingRoomManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        AudioManagerMain.instance.PlaySFX("HeartbeatNormalSFX");
+        _heartbeatNormalSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_halfwayPresentationFemale);
         yield return new WaitForSeconds(_halfwayPresentationFemale.length + 1f);
 
-        AudioManagerMain.instance.PlaySFX("HeartbeatLouderSFX");
+        _heartbeatLouderSFX.Play();
         _meetingRoomAudioSource.PlayOneShot(_ohNoFemale);
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         yield return new WaitForSeconds(_ohNoFemale.length + 1f);
@@ -110,7 +106,7 @@ public class MeetingRoomManager : MonoBehaviour
         _meetingRoomAudioSource.PlayOneShot(_thisCantHappenFemale);
         yield return new WaitForSeconds(_thisCantHappenFemale.length + 1f);
 
-        AudioManagerMain.instance.PlaySFX("UserBreathing");
+        _userBreathingSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_howDoILeaveFemale);
         yield return new WaitForSeconds(_howDoILeaveFemale.length + 1f);
@@ -120,10 +116,12 @@ public class MeetingRoomManager : MonoBehaviour
 
         HaptticManager.Instance.StopHapticLoop();
         VignetteFadeController.Instance.FadeImageOut();
-        AudioManagerMain.instance.PlaySFX("FootSteps");
+        _footSteps.Play();
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
 
         yield return new WaitForSeconds(3f);
+        HaptticManager.Instance.StopHapticLoop();
+
         SceneManager.LoadSceneAsync("MeetingBathroom");
 
     }

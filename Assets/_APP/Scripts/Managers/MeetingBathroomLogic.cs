@@ -1,3 +1,4 @@
+using Bhaptics.SDK2;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,17 +7,36 @@ using UnityEngine.Playables;
 public class MeetingBathroomLogic : MonoBehaviour
 {
     [SerializeField] AudioSource _meetingRoomAudioSource;
-    [SerializeField] AudioClip _didntMakeItBackMale;
-    [SerializeField] AudioClip _didntMakeItBackFemale;
+
+    [Header("SFX")]
+    [SerializeField] AudioSource _runningWaterSFX;
+    [SerializeField] AudioSource _footstepsEchoSFX;
+    [SerializeField] AudioSource _breathSlowSFX;
+
+    [Header("Make It Back")]
+    [SerializeField] AudioClip _makeItBackMale;
+    [SerializeField] AudioClip _makeItBackFemale;
+
+    [Header("My Coworkers")]
+    [SerializeField] AudioClip _myCoworkersMale;
+    [SerializeField] AudioClip _myCoworkersFemale;
+
+    [Header("How do I explain")]
     [SerializeField] AudioClip _howDoIExplainMale;
     [SerializeField] AudioClip _howDoIExplainFemale;
+
+    [Header("This Could Ruin")]
     [SerializeField] AudioClip _thisCouldRuinMale;
     [SerializeField] AudioClip _thisCouldRuinFemale;
+
     [SerializeField] GameData _gameData;
 
     void Start()
     {
-        AudioManagerMain.instance.PlaySFX("RunningWaterSFX");
+        _runningWaterSFX.Play();
+        _footstepsEchoSFX.Play();
+
+        VignetteFadeController.Instance.FadeImageIn();
 
         if (_gameData.playerGender == GenderEnum.Female)
         {
@@ -32,20 +52,26 @@ public class MeetingBathroomLogic : MonoBehaviour
     {
 
         yield return new WaitForSeconds(2);
-        _meetingRoomAudioSource.PlayOneShot(_didntMakeItBackMale);
-        yield return new WaitForSeconds(_didntMakeItBackMale.length + 1f);
-        // Strong Haptics on stomach
+        _meetingRoomAudioSource.PlayOneShot(_makeItBackMale);
+        yield return new WaitForSeconds(_makeItBackMale.length + 1f);
+        
+        _meetingRoomAudioSource.PlayOneShot(_myCoworkersMale);
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
+        yield return new WaitForSeconds(_myCoworkersMale.length + 1f);
 
         VignetteFadeController.Instance.FadeImageOut();
-        AudioManagerMain.instance.PlaySFX("BreathSlowSFX");
+        _breathSlowSFX.Play();
+        _runningWaterSFX.Stop();
+        _footstepsEchoSFX.Stop();
+        yield return new WaitForSeconds(1f);
 
+        _breathSlowSFX.Stop();
         _meetingRoomAudioSource.PlayOneShot(_howDoIExplainMale);
-        yield return new WaitForSeconds(_howDoIExplainMale.length + 3f);
-
-
-        AudioManagerMain.instance.StopSound("BreathSlowSFX");
+        yield return new WaitForSeconds(_howDoIExplainMale.length + 1f);
         _meetingRoomAudioSource.PlayOneShot(_thisCouldRuinMale);
         yield return new WaitForSeconds(_thisCouldRuinMale.length + 1f);
+
+        HaptticManager.Instance.StopHapticLoop();
 
         //Scene ending
 
@@ -53,19 +79,26 @@ public class MeetingBathroomLogic : MonoBehaviour
     public IEnumerator StartFemaleVoices()
     {
         yield return new WaitForSeconds(2);
-        _meetingRoomAudioSource.PlayOneShot(_didntMakeItBackFemale);
-        yield return new WaitForSeconds(_didntMakeItBackFemale.length + 1f);
-        // Strong Haptics on stomach
+        _meetingRoomAudioSource.PlayOneShot(_makeItBackFemale);
+        yield return new WaitForSeconds(_makeItBackFemale.length + 1f);
+
+        _meetingRoomAudioSource.PlayOneShot(_myCoworkersFemale);
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
+        yield return new WaitForSeconds(_myCoworkersFemale.length + 1f);
 
         VignetteFadeController.Instance.FadeImageOut();
-        AudioManagerMain.instance.PlaySFX("BreathSlowSFX");
+        _breathSlowSFX.Play();
+        _runningWaterSFX.Stop();
+        _footstepsEchoSFX.Stop();
+        yield return new WaitForSeconds(1f);
 
+        _breathSlowSFX.Stop();
         _meetingRoomAudioSource.PlayOneShot(_howDoIExplainFemale);
-        yield return new WaitForSeconds(_howDoIExplainFemale.length + 3f);
-
-        AudioManagerMain.instance.StopSound("BreathSlowSFX");
+        yield return new WaitForSeconds(_howDoIExplainFemale.length + 1f);
         _meetingRoomAudioSource.PlayOneShot(_thisCouldRuinFemale);
-        yield return new WaitForSeconds(_thisCouldRuinFemale.length + 3f);
+        yield return new WaitForSeconds(_thisCouldRuinFemale.length + 1f);
+
+        HaptticManager.Instance.StopHapticLoop();
 
         //Scene ending
     }
