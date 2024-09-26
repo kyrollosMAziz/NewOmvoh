@@ -2582,10 +2582,10 @@ MonoBehaviour:
   _chatterAudio: {fileID: 8300000, guid: 5c2e687b4cb81fe40b9a86aad34d4e6f, type: 3}
   _maleIntroductionClip1: {fileID: 8300000, guid: 36862847341b6844faf593815882f8db, type: 3}
   _maleIntroductionClip2: {fileID: 8300000, guid: c309754bd85d698409c899b49305ef39, type: 3}
-  _maleIntroductionclip3: {fileID: 8300000, guid: b0aa17831fface740b7e3bf35af93c3d, type: 3}
+  _maleIntroductionClip3: {fileID: 8300000, guid: b0aa17831fface740b7e3bf35af93c3d, type: 3}
   _femaleIntroductionClip1: {fileID: 8300000, guid: 2e465d5d3fddc4349b83edaac4b40fac, type: 3}
   _femaleIntroductionClip2: {fileID: 8300000, guid: 9500e681c8fc0ff4ca2ed83c59d94d01, type: 3}
-  _femaleIntroductionclip3: {fileID: 8300000, guid: 997a4ba2bb672b441b416a1977a2af46, type: 3}
+  _femaleIntroductionClip3: {fileID: 8300000, guid: 997a4ba2bb672b441b416a1977a2af46, type: 3}
   _maleBathroomClip1: {fileID: 8300000, guid: c1b5414ab2791cb41864c5dd0216dfd3, type: 3}
   _maleBathroomClip2: {fileID: 8300000, guid: fb1ebadf32c6d1e47a41df25da700700, type: 3}
   _maleBathroomClip3: {fileID: 8300000, guid: 3c5f944f383b7654fa56cfcbda53b682, type: 3}
@@ -2594,12 +2594,14 @@ MonoBehaviour:
   _femaleBathroomClip2: {fileID: 8300000, guid: 6522c92218a059f4cab7bb13e71d7872, type: 3}
   _femaleBathroomClip3: {fileID: 8300000, guid: 82a7a767bdad2014db12cb7fe90854b4, type: 3}
   _femaleBathroomClip4: {fileID: 8300000, guid: 4808cf7ea164707449fd99d53d737d63, type: 3}
+  _flightAttendantClip: {fileID: 8300000, guid: d6ffbaa61f551a54c8fa471e4b3ac66e, type: 3}
   _malePublicExplosureClip1: {fileID: 8300000, guid: 3fe94d93a2feeb042ad2c68c9044a901, type: 3}
   _malePublicExplosureClip2: {fileID: 8300000, guid: 003fdfd1610fe97479520bdf863462be, type: 3}
   _femalePublicExplosureClip1: {fileID: 8300000, guid: 0da64617e33f454458a2f7c2b6555d7a, type: 3}
   _femalePublicExplosureClip2: {fileID: 8300000, guid: 1b9745b850070f64c9aa76a484acd0bf, type: 3}
   _npcPublicExplosureClip1: {fileID: 8300000, guid: 3e6096ac7a7d35e4c8de3a4bf17c739b, type: 3}
   _npcPublicExplosureClip2: {fileID: 8300000, guid: a8244d6584979dc4eaf33c19e2c53b45, type: 3}
+  _npcMurmurlls: {fileID: 8300000, guid: bc6674a4045cd4e429b6ba2baf1d42f8, type: 3}
 --- !u!1001 &2000204642
 PrefabInstance:
   m_ObjectHideFlags: 0
