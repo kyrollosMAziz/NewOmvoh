@@ -1,39 +1,9 @@
 fileFormatVersion: 2
-guid: 1c1114c6ef1ad3649b0a54bb0eddb6fd
+guid: 5601aa2eeb231de46b1742b437a395aa
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Default_Material
-    second: {fileID: 2100000, guid: 563a830253981d1408e3987754f13ada, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Door_Cutun
-    second: {fileID: 2100000, guid: b2f5b502fa9f77a4bae2a1270da4ff0b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Glass_mat
-    second: {fileID: 2100000, guid: 5160a763fbdf9e5468c7035a122c3cc4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Plane_centre_body
-    second: {fileID: 2100000, guid: 01652fe46236d5b4c9f2b7d6a53f0f8d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: seats
-    second: {fileID: 2100000, guid: bc96917f3a3eb4d4bb3ba20938733e45, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tv
-    second: {fileID: 2100000, guid: faffc2a8ca30d9e409f6007219750c64, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

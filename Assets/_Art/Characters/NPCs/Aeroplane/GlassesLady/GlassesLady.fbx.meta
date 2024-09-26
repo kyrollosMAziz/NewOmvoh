@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: a4e453b3f28c4314d8c797745e2c4fe8
+guid: d9df7046654d50640b7d693aa46414bc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: fig0021_Glases
-    second: {fileID: 2100000, guid: a5ddcf89fb3ba6549a9c27c4afc82c19, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: fig0021_Glases-Glas
-    second: {fileID: 2100000, guid: 2b114156813d8be4f87b71d7ba6bdfe6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: fig0021_Material
-    second: {fileID: 2100000, guid: 927291574929dff4da462a541645d863, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.01
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -105,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0001
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
