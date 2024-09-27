@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/_APP/Scenes/MettingRoom.unity
     guid: 3c5db73430fe13248b0092b8ecddbfab
   - enabled: 1
-    path: Assets/_APP/Scenes/Corporate bathroom.unity
+    path: Assets/_APP/Scenes/CorporateBathroom.unity
     guid: 4f191785b5269c541a2375930eef08c5
   - enabled: 1
     path: Assets/_APP/Scenes/Aeroplane.unity

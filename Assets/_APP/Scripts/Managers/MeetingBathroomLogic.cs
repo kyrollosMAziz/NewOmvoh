@@ -64,6 +64,7 @@ public class MeetingBathroomLogic : MonoBehaviour
         _runningWaterSFX.Stop();
         _footstepsEchoSFX.Stop();
         yield return new WaitForSeconds(1f);
+        VignetteFadeController.Instance.FadeImageIn();
 
         _heartbeatSlowSFX.Stop();
         _meetingRoomAudioSource.PlayOneShot(_howDoIExplainMale);
@@ -74,7 +75,7 @@ public class MeetingBathroomLogic : MonoBehaviour
         HaptticManager.Instance.StopHapticLoop();
 
         //Scene ending
-
+        VignetteSceneLoadManager.Instance.LoadSceneByName("Aeroplane");
     }
     public IEnumerator StartFemaleVoices()
     {
@@ -91,6 +92,7 @@ public class MeetingBathroomLogic : MonoBehaviour
         _runningWaterSFX.Stop();
         _footstepsEchoSFX.Stop();
         yield return new WaitForSeconds(1f);
+        VignetteFadeController.Instance.FadeImageIn();
 
         _heartbeatSlowSFX.Stop();
         _meetingRoomAudioSource.PlayOneShot(_howDoIExplainFemale);
@@ -101,5 +103,7 @@ public class MeetingBathroomLogic : MonoBehaviour
         HaptticManager.Instance.StopHapticLoop();
 
         //Scene ending
+
+        VignetteSceneLoadManager.Instance.LoadSceneByName("Aeroplane");
     }
 }
