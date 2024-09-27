@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Bhaptics.SDK2;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManager>
 {
@@ -70,7 +69,13 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
     private void Start()
     {
-        StartCoroutine(StartIntroductionBehavior());
+        VignetteFadeController.Instance.FadeImageInWithAction(() =>
+        {
+            _backGroundEffect.gameObject.SetActive(true);
+            _rollingAudio.gameObject.SetActive(true);
+            _userHeartbeatSfx.gameObject.SetActive(true);
+            StartCoroutine(StartIntroductionBehavior());
+        });
     }
 
     private IEnumerator StartIntroductionBehavior()
@@ -230,6 +235,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         //close Scene
         HaptticManager.Instance.StopHapticLoop();
+        VignetteFadeController.Instance.FadeImageOutWithAction(() => { SceneManager.LoadSceneAsync(2); });
     }
 
     private void AdjustPlayerPosition(Transform targetTransform)
