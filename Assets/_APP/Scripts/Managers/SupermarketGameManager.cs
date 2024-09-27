@@ -9,7 +9,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 {
     [SerializeField] private GameData _gameData;
     [SerializeField] private GameObject _playerXr;
-
+    [SerializeField] private GameObject _doorInteraction;
     [SerializeField] private AudioSource _backGroundEffect;
     [SerializeField] private AudioSource _rollingAudio;
     [SerializeField] private AudioSource _userHeartbeatSfx;
@@ -125,10 +125,15 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
 
-        //open door action
+        _doorInteraction.SetActive(true);
     }
 
-    public IEnumerator OnBathroomKeypadInteraction()
+    public void BathroomInteractionFired()
+    {
+        StartCoroutine(OnBathroomKeypadInteraction());
+    }
+
+    private IEnumerator OnBathroomKeypadInteraction()
     {
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleBathroomClip2
@@ -139,7 +144,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _backGroundEffect.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.clip =_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleBathroomClip3
             : _femaleBathroomClip3;
         _voiceOverAudioSource.Play();
@@ -170,58 +175,58 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             ? _malePublicExplosureClip1
             : _femalePublicExplosureClip1;
         _voiceOverAudioSource.Play();
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcStartclip;
         _voiceOverAudioSource.Play();
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcPublicExplosureClip1;
         _voiceOverAudioSource.Play();
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcPublicExplosureClip2;
         _voiceOverAudioSource.Play();
-        
+
         _userHeartbeatSfx.clip = _slowHeartbeat;
         _userHeartbeatSfx.Play();
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _malePublicExplosureClip2
             : _femalePublicExplosureClip2;
         _voiceOverAudioSource.Play();
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcPublicExplosureClip3;
         _voiceOverAudioSource.Play();
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcPublicExplosureClip4;
         _voiceOverAudioSource.Play();
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        VignetteFadeController.Instance.FadeImageOutWithAction(() =>
-        {
-            VignetteFadeController.Instance.FadeImageInWithAction(() => { StartCoroutine(StartOutroBehavior()); });
-        });
+        VignetteFadeController.Instance.FadeImageOutWithAction(() => { StartCoroutine(StartOutroBehavior()); });
     }
 
     private IEnumerator StartOutroBehavior()
     {
-        _backGroundEffect.gameObject.SetActive(false);
-        _voiceOverAudioSource.clip =_gameData.playerGender == GenderEnum.Male
-            ? _maleOutroClip1
-            : _femaleOutroClip1;
-        _voiceOverAudioSource.Play();
-     
+        yield return new WaitForSeconds(4);
+        VignetteFadeController.Instance.FadeImageInWithAction(() =>
+        {
+            _backGroundEffect.gameObject.SetActive(false);
+            _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
+                ? _maleOutroClip1
+                : _femaleOutroClip1;
+            _voiceOverAudioSource.Play();
+        });
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _userHeartbeatSfx.gameObject.SetActive(false);
-        _voiceOverAudioSource.clip =_gameData.playerGender == GenderEnum.Male
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleOutroClip2
             : _femaleOutroClip2;
         _voiceOverAudioSource.Play();
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         //close Scene
         HaptticManager.Instance.StopHapticLoop();
