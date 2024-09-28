@@ -63,7 +63,7 @@ public class MeetingBathroomLogic : MonoBehaviour
         _heartbeatSlowSFX.Play();
         _runningWaterSFX.Stop();
         _footstepsEchoSFX.Stop();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         VignetteFadeController.Instance.FadeImageIn();
 
         _heartbeatSlowSFX.Stop();
@@ -91,7 +91,7 @@ public class MeetingBathroomLogic : MonoBehaviour
         _heartbeatSlowSFX.Play();
         _runningWaterSFX.Stop();
         _footstepsEchoSFX.Stop();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         VignetteFadeController.Instance.FadeImageIn();
 
         _heartbeatSlowSFX.Stop();

@@ -122,6 +122,7 @@ public class MeetingRoomManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         HaptticManager.Instance.StopHapticLoop();
 
+
         SceneManager.LoadSceneAsync("CorporateBathroom");
 
     }

@@ -1384,8 +1384,8 @@ MonoBehaviour:
   m_Camera: {fileID: 269212785}
   m_OriginBaseGameObject: {fileID: 1229226945}
   m_CameraFloorOffsetObject: {fileID: 994264776}
-  m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: 1.1176
+  m_RequestedTrackingOriginMode: 1
+  m_CameraYOffset: 1.4
 --- !u!4 &1229226947
 Transform:
   m_ObjectHideFlags: 0
@@ -1933,6 +1933,10 @@ PrefabInstance:
     - target: {fileID: 3501095335308518427, guid: c76cb9fce5ef3cb42bb5cda0f01e7f71, type: 3}
       propertyPath: m_Name
       value: Hapttic Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501095335308518427, guid: c76cb9fce5ef3cb42bb5cda0f01e7f71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3762194093655153584, guid: c76cb9fce5ef3cb42bb5cda0f01e7f71, type: 3}
       propertyPath: m_LocalPosition.x
