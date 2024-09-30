@@ -53,6 +53,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioClip _femalePublicExplosureClip1;
     [SerializeField] private AudioClip _femalePublicExplosureClip2;
 
+    [SerializeField] private Animator _npcMale;
+    [SerializeField] private Animator _npcFemale;
     [SerializeField] private AudioClip _npcStartclip;
     [SerializeField] private AudioClip _npcPublicExplosureClip1;
     [SerializeField] private AudioClip _npcPublicExplosureClip2;
@@ -162,6 +164,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         });
     }
 
+    #region Exposure Behavior
+
     private IEnumerator StartExposureBehavior()
     {
         yield return new WaitForSeconds(7f);
@@ -185,34 +189,54 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _voiceOverAudioSource.clip = _npcStartclip;
         _voiceOverAudioSource.Play();
 
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length);
+        _npcMale.SetTrigger("talk");
+        _npcFemale.SetTrigger("talk");
+    }
+
+    public void Npc1Talk()
+    {
         _voiceOverAudioSource.clip = _npcPublicExplosureClip1;
         _voiceOverAudioSource.Play();
+    }
 
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+    public void Npc2Talk()
+    {
         _voiceOverAudioSource.clip = _npcPublicExplosureClip2;
         _voiceOverAudioSource.Play();
 
         _userHeartbeatSfx.clip = _slowHeartbeat;
         _userHeartbeatSfx.Play();
+    }
 
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+    public void Npc3Talk()
+    {
+        _voiceOverAudioSource.clip = _npcPublicExplosureClip3;
+        _voiceOverAudioSource.Play();
+    }
+
+    public void Npc4Talk()
+    {
+        _voiceOverAudioSource.clip = _npcPublicExplosureClip4;
+        _voiceOverAudioSource.Play();
+        StartCoroutine(UserTalking());
+    }
+
+
+    private IEnumerator UserTalking()
+    {
+        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length);
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _malePublicExplosureClip2
             : _femalePublicExplosureClip2;
         _voiceOverAudioSource.Play();
-
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.clip = _npcPublicExplosureClip3;
-        _voiceOverAudioSource.Play();
-
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.clip = _npcPublicExplosureClip4;
-        _voiceOverAudioSource.Play();
-
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         VignetteFadeController.Instance.FadeImageOutWithAction(() => { StartCoroutine(StartOutroBehavior()); });
     }
+
+    #endregion
+
+    #region Outro Behavior
 
     private IEnumerator StartOutroBehavior()
     {
@@ -237,6 +261,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         HaptticManager.Instance.StopHapticLoop();
         VignetteFadeController.Instance.FadeImageOutWithAction(() => { SceneManager.LoadSceneAsync(2); });
     }
+
+    #endregion
 
     private void AdjustPlayerPosition(Transform targetTransform)
     {

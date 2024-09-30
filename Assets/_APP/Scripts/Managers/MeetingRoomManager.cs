@@ -39,7 +39,7 @@ public class MeetingRoomManager : MonoBehaviour
     [SerializeField] GameData _gameData;
     void Start()
     {
-        _meetingBgSFX.Play();
+        //_meetingBgSFX.Play();
         VignetteFadeController.Instance.FadeImageIn();
 
         if (_gameData.playerGender == GenderEnum.Female)
@@ -54,13 +54,14 @@ public class MeetingRoomManager : MonoBehaviour
 
     public IEnumerator StartMaleVoices()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
 
         _heartbeatNormalSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_halfwayPresentationMale);
         yield return new WaitForSeconds(_halfwayPresentationMale.length + 1f);
 
+        _heartbeatNormalSFX.Stop();
         _heartbeatLouderSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_ohNoMale);
@@ -70,6 +71,7 @@ public class MeetingRoomManager : MonoBehaviour
         _meetingRoomAudioSource.PlayOneShot(_thisCantHappenMale);
         yield return new WaitForSeconds(_thisCantHappenMale.length + 1f);
 
+        _heartbeatLouderSFX.Stop();
         _heartbeatSlowSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_howDoILeaveMale);
@@ -91,14 +93,16 @@ public class MeetingRoomManager : MonoBehaviour
     }
     public IEnumerator StartFemaleVoices()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
 
         _heartbeatNormalSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_halfwayPresentationFemale);
         yield return new WaitForSeconds(_halfwayPresentationFemale.length + 1f);
 
+        _heartbeatNormalSFX.Stop();
         _heartbeatLouderSFX.Play();
+
         _meetingRoomAudioSource.PlayOneShot(_ohNoFemale);
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         yield return new WaitForSeconds(_ohNoFemale.length + 1f);
@@ -106,6 +110,7 @@ public class MeetingRoomManager : MonoBehaviour
         _meetingRoomAudioSource.PlayOneShot(_thisCantHappenFemale);
         yield return new WaitForSeconds(_thisCantHappenFemale.length + 1f);
 
+        _heartbeatLouderSFX.Stop();
         _heartbeatSlowSFX.Play();
 
         _meetingRoomAudioSource.PlayOneShot(_howDoILeaveFemale);
