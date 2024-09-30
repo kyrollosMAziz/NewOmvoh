@@ -16,6 +16,7 @@ public class AirPlaneManager : MonoBehaviour
     [SerializeField] private AudioSource _turbulanceAudioSource;
 
     [SerializeField] private Transform _bathroomTransitionPosition;
+    [SerializeField] private Transform _seatTransitionPosition;
 
 
     [Header("Heartbeat Clips")]
@@ -67,7 +68,10 @@ public class AirPlaneManager : MonoBehaviour
     [SerializeField] private AudioClip _npcPublicExplosureClip1;
     [SerializeField] private AudioClip _npcPublicExplosureClip2;
     [SerializeField] private AudioClip _npcMurmurlls;
-    
+
+    [SerializeField]
+    private Animator _flighAttendantAnim;
+
     private void Start()
     {
         StartCoroutine(StartIntroductionBehavior());
@@ -130,6 +134,9 @@ public class AirPlaneManager : MonoBehaviour
         _backGroundEffect.clip = _chatterAudio;
         _backGroundEffect.Play();
         yield return new WaitForSeconds(2f);
+        _flighAttendantAnim.SetTrigger("Shout");
+        yield return new WaitForSeconds(1.7f);
+
         _voiceOverAudioSource.clip = _flightAttendantClip;
         _voiceOverAudioSource.Play();
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
@@ -159,6 +166,8 @@ public class AirPlaneManager : MonoBehaviour
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
             StartCoroutine(StartExposureBehavior());
+            AdjustPlayerPosition(_seatTransitionPosition);
+
             AudioSourcesAction(false);
         });
         //open door action
