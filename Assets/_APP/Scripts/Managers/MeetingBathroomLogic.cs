@@ -59,14 +59,14 @@ public class MeetingBathroomLogic : MonoBehaviour
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(_myCoworkersMale.length + 1f);
 
-        VignetteFadeController.Instance.FadeImageOut();
+        //VignetteFadeController.Instance.FadeImageOut();
         _heartbeatSlowSFX.Play();
         _runningWaterSFX.Stop();
         _footstepsEchoSFX.Stop();
         yield return new WaitForSeconds(3f);
-        VignetteFadeController.Instance.FadeImageIn();
+        //VignetteFadeController.Instance.FadeImageIn();
 
-        _heartbeatSlowSFX.Stop();
+        //_heartbeatSlowSFX.Stop();
         _meetingRoomAudioSource.PlayOneShot(_howDoIExplainMale);
         yield return new WaitForSeconds(_howDoIExplainMale.length + 1f);
         _meetingRoomAudioSource.PlayOneShot(_thisCouldRuinMale);
@@ -87,14 +87,14 @@ public class MeetingBathroomLogic : MonoBehaviour
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(_myCoworkersFemale.length + 1f);
 
-        VignetteFadeController.Instance.FadeImageOut();
+        //VignetteFadeController.Instance.FadeImageOut();
         _heartbeatSlowSFX.Play();
         _runningWaterSFX.Stop();
         _footstepsEchoSFX.Stop();
         yield return new WaitForSeconds(3f);
-        VignetteFadeController.Instance.FadeImageIn();
+        //VignetteFadeController.Instance.FadeImageIn();
 
-        _heartbeatSlowSFX.Stop();
+        //_heartbeatSlowSFX.Stop();
         _meetingRoomAudioSource.PlayOneShot(_howDoIExplainFemale);
         yield return new WaitForSeconds(_howDoIExplainFemale.length + 1f);
         _meetingRoomAudioSource.PlayOneShot(_thisCouldRuinFemale);
