@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class AirPlaneManager : MonoBehaviour
 {
     [SerializeField] private GameData _gameData;
@@ -244,12 +244,9 @@ public class AirPlaneManager : MonoBehaviour
         _userHeartbeatSfx.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-
-
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
-            VignetteFadeController.Instance.FadeImageInWithAction(() => { StartCoroutine(StartOutroBehavior()); });
+              LoadLobby(); 
         });
     }
 
@@ -277,5 +274,9 @@ public class AirPlaneManager : MonoBehaviour
     {
         _backGroundEffect.gameObject.SetActive(flag);
         _voiceOverAudioSource.gameObject.SetActive(flag);
+    }
+    public void LoadLobby()
+    {
+        SceneManager.LoadSceneAsync("Lobby scene");
     }
 }
