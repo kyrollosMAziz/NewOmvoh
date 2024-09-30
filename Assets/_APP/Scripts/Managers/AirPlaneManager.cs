@@ -1,6 +1,7 @@
 using Bhaptics.SDK2;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AirPlaneManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class AirPlaneManager : MonoBehaviour
     [SerializeField] private AudioSource _rollingAudio;
     [SerializeField] private AudioSource _userHeartbeatSfx;
     [SerializeField] private AudioSource _voiceOverAudioSource;
+    [SerializeField] private AudioSource _turbulanceAudioSource;
 
     [SerializeField] private Transform _bathroomTransitionPosition;
 
@@ -24,8 +26,10 @@ public class AirPlaneManager : MonoBehaviour
     [SerializeField] private AudioClip _speedHeartbeat;
 
     [SerializeField] private AudioClip _chatterAudio;
+    [SerializeField] private AudioClip _intheAirPlaneAudio;
 
     [Header("introduction ")]
+    [SerializeField] private AudioClip _turbulance;
     [SerializeField]
     private AudioClip _maleIntroductionClip1;
 
@@ -49,6 +53,7 @@ public class AirPlaneManager : MonoBehaviour
     [SerializeField] private AudioClip _femaleBathroomClip3;
     [SerializeField] private AudioClip _femaleBathroomClip4;
     [SerializeField] private AudioClip _flightAttendantClip;
+    [SerializeField] private AudioClip _muffeledNoiseClip;
 
     [Header("Public Exposure Clips")]
     [SerializeField]
@@ -70,14 +75,18 @@ public class AirPlaneManager : MonoBehaviour
 
     private IEnumerator StartIntroductionBehavior()
     {
-        _voiceOverAudioSource.clip = _npcMurmurlls;
-        _voiceOverAudioSource.Play();
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+        _backGroundEffect.clip = _intheAirPlaneAudio;
+        _backGroundEffect.Play();
+        yield return new WaitForSeconds(2f);
+
+        _turbulanceAudioSource.clip = _turbulance;
+        _turbulanceAudioSource.Play();
+        yield return new WaitForSeconds(2f);
 
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         _userHeartbeatSfx.clip = _speedHeartbeat;
         _userHeartbeatSfx.Play();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleIntroductionClip1
             : _femaleIntroductionClip1;
@@ -118,6 +127,9 @@ public class AirPlaneManager : MonoBehaviour
 
     private IEnumerator StartBathroomBehavior()
     {
+        _backGroundEffect.clip = _chatterAudio;
+        _backGroundEffect.Play();
+        yield return new WaitForSeconds(2f);
         _voiceOverAudioSource.clip = _flightAttendantClip;
         _voiceOverAudioSource.Play();
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
@@ -186,7 +198,7 @@ public class AirPlaneManager : MonoBehaviour
         yield return new WaitForSeconds(7f);
         VignetteFadeController.Instance.FadeImageInWithAction(() =>
         {
-            _backGroundEffect.clip = _chatterAudio;
+          //  _backGroundEffect.clip = _chatterAudio;
             _rollingAudio.gameObject.SetActive(false);
             AudioSourcesAction(true);
             StartCoroutine(ExposureBehavior());
@@ -195,6 +207,9 @@ public class AirPlaneManager : MonoBehaviour
 
     private IEnumerator ExposureBehavior()
     {
+        _backGroundEffect.clip = _npcMurmurlls;
+        _backGroundEffect.Play();
+        yield return new WaitForSeconds(2f);
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _malePublicExplosureClip1
             : _femalePublicExplosureClip1;

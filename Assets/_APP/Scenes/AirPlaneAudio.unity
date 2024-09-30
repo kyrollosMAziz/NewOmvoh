@@ -154,6 +154,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1480499093}
+  - {fileID: 471906116}
   m_Father: {fileID: 439132383}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &26299896
@@ -168,7 +169,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5c0f54d69884a1a4ca2c267a92cffb0a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.265
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -943,6 +944,134 @@ Transform:
   - {fileID: 1525289458}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &471906115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 471906116}
+  - component: {fileID: 471906117}
+  m_Layer: 0
+  m_Name: turbulance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &471906116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471906115}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 26299895}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &471906117
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471906115}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.655
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &499170179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,7 +2409,7 @@ GameObject:
   - component: {fileID: 1480499093}
   - component: {fileID: 1480499094}
   m_Layer: 0
-  m_Name: Rolling Sfx
+  m_Name: Airplane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2313,7 +2442,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a4b1c6509007e0f41abe3035aa28022c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2536,7 +2665,7 @@ GameObject:
   - component: {fileID: 1756736045}
   - component: {fileID: 1756736046}
   m_Layer: 0
-  m_Name: Supermarket Game Manager
+  m_Name: Air plane manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2575,11 +2704,14 @@ MonoBehaviour:
   _rollingAudio: {fileID: 1480499094}
   _userHeartbeatSfx: {fileID: 1525289459}
   _voiceOverAudioSource: {fileID: 574435406}
+  _turbulanceAudioSource: {fileID: 471906117}
   _bathroomTransitionPosition: {fileID: 1338290211}
   _slowHeartbeat: {fileID: 8300000, guid: 664003e678ef7654e9622a8885f44b46, type: 3}
   _normalHeartbeat: {fileID: 8300000, guid: bf10ea6a72d2d50469714430a193ccf4, type: 3}
   _speedHeartbeat: {fileID: 8300000, guid: a8a07165c61bd5946a94dd5fb5e8d497, type: 3}
-  _chatterAudio: {fileID: 8300000, guid: 5c2e687b4cb81fe40b9a86aad34d4e6f, type: 3}
+  _chatterAudio: {fileID: 8300000, guid: 5d2ce76d8750fa54db80b9bdf626c35b, type: 3}
+  _intheAirPlaneAudio: {fileID: 8300000, guid: bc6674a4045cd4e429b6ba2baf1d42f8, type: 3}
+  _turbulance: {fileID: 8300000, guid: d8a5d6df61f87d042af52938764f72e1, type: 3}
   _maleIntroductionClip1: {fileID: 8300000, guid: 36862847341b6844faf593815882f8db, type: 3}
   _maleIntroductionClip2: {fileID: 8300000, guid: c309754bd85d698409c899b49305ef39, type: 3}
   _maleIntroductionClip3: {fileID: 8300000, guid: b0aa17831fface740b7e3bf35af93c3d, type: 3}
@@ -2595,13 +2727,14 @@ MonoBehaviour:
   _femaleBathroomClip3: {fileID: 8300000, guid: 82a7a767bdad2014db12cb7fe90854b4, type: 3}
   _femaleBathroomClip4: {fileID: 8300000, guid: 4808cf7ea164707449fd99d53d737d63, type: 3}
   _flightAttendantClip: {fileID: 8300000, guid: d6ffbaa61f551a54c8fa471e4b3ac66e, type: 3}
+  _muffeledNoiseClip: {fileID: 0}
   _malePublicExplosureClip1: {fileID: 8300000, guid: 3fe94d93a2feeb042ad2c68c9044a901, type: 3}
   _malePublicExplosureClip2: {fileID: 8300000, guid: 003fdfd1610fe97479520bdf863462be, type: 3}
   _femalePublicExplosureClip1: {fileID: 8300000, guid: 0da64617e33f454458a2f7c2b6555d7a, type: 3}
   _femalePublicExplosureClip2: {fileID: 8300000, guid: 1b9745b850070f64c9aa76a484acd0bf, type: 3}
   _npcPublicExplosureClip1: {fileID: 8300000, guid: 3e6096ac7a7d35e4c8de3a4bf17c739b, type: 3}
   _npcPublicExplosureClip2: {fileID: 8300000, guid: a8244d6584979dc4eaf33c19e2c53b45, type: 3}
-  _npcMurmurlls: {fileID: 8300000, guid: bc6674a4045cd4e429b6ba2baf1d42f8, type: 3}
+  _npcMurmurlls: {fileID: 8300000, guid: 426fbb11d77a14e42889c1b287f49399, type: 3}
 --- !u!1001 &2000204642
 PrefabInstance:
   m_ObjectHideFlags: 0
