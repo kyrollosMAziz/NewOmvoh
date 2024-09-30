@@ -3,7 +3,62 @@ guid: 96769d3c29efb344dad6606e7719da60
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body1
+    second: {fileID: 2100000, guid: ca1e7b253976a1c44aee35ed43e03b21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gums
+    second: {fileID: 2100000, guid: eb3ec0a50d91761429c967686b3f0ac5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair_8
+    second: {fileID: 2100000, guid: c1764588f0e8b0f4c89529b5631d89bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head_tex
+    second: {fileID: 2100000, guid: 3cdb8de4ce009244aadbb686123681b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head_tex1
+    second: {fileID: 2100000, guid: 3cdb8de4ce009244aadbb686123681b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inner_eye
+    second: {fileID: 2100000, guid: 4d5a0187c606b344f8e9919a4400122c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outer_eyes
+    second: {fileID: 2100000, guid: 4d5a0187c606b344f8e9919a4400122c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pants
+    second: {fileID: 2100000, guid: cfe3badba57be89499a5a1968740e008, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt
+    second: {fileID: 2100000, guid: b6c270e23ee812b4284024221994cd1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes1
+    second: {fileID: 2100000, guid: ae6870240b9db8d4aab20216459635e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teeth
+    second: {fileID: 2100000, guid: 547d6a1301baa5c44ab8ef0fd63ccc6b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
