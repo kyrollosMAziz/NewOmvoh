@@ -3,7 +3,47 @@ guid: 92c7d74f7ea7dea46890f06475f7f9ed
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rita_0009_clothes1
+    second: {fileID: 2100000, guid: 86c0ed46259354844920b677917e77c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rita_0009_gums2
+    second: {fileID: 2100000, guid: eb3ec0a50d91761429c967686b3f0ac5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rita_0009_head_tex2
+    second: {fileID: 2100000, guid: 68c8afc81aa48284195ca1e12760507a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rita_0009_inner_eye2
+    second: {fileID: 2100000, guid: 7d97336dca062d84587bfcd42fa6d36b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rita_0009_outer_eyes2
+    second: {fileID: 2100000, guid: 7d97336dca062d84587bfcd42fa6d36b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rita_0009_shirt3
+    second: {fileID: 2100000, guid: b28dea620121a76459b75fbc57ce75c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rita_0009_shoes2
+    second: {fileID: 2100000, guid: ca8ce411a23c6704b91129926a09f829, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rita_0009_teeth2
+    second: {fileID: 2100000, guid: 547d6a1301baa5c44ab8ef0fd63ccc6b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

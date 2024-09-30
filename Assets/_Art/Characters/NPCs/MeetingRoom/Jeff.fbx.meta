@@ -3,7 +3,57 @@ guid: 4ca13cf282e1b3f42bd68387368ea2a4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_body1
+    second: {fileID: 2100000, guid: f1ea9f63187124945a57016d966c5499, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_buttons
+    second: {fileID: 2100000, guid: db070431ffac44446a6cec62d8d850cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_gums
+    second: {fileID: 2100000, guid: eb3ec0a50d91761429c967686b3f0ac5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_head1
+    second: {fileID: 2100000, guid: afcee47a92512234c8f4b26fe6592d05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_inner_eyes
+    second: {fileID: 2100000, guid: 94e2984a06347be4a88427c5e7822cdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_leather
+    second: {fileID: 2100000, guid: 366e587fe672c404e9ca8daeb66bbb87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_outer_eyes
+    second: {fileID: 2100000, guid: 94e2984a06347be4a88427c5e7822cdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_pants
+    second: {fileID: 2100000, guid: 3a5d6964101592043bfc138e1b769f32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_shirt1
+    second: {fileID: 2100000, guid: 7958f40336fafb747874b02922ae0108, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jeff_0006_teeth
+    second: {fileID: 2100000, guid: 547d6a1301baa5c44ab8ef0fd63ccc6b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
