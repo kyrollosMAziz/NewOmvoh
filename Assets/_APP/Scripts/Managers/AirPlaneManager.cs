@@ -13,6 +13,9 @@ public class AirPlaneManager : MonoBehaviour
     [SerializeField] private AudioSource _rollingAudio;
     [SerializeField] private AudioSource _userHeartbeatSfx;
     [SerializeField] private AudioSource _voiceOverAudioSource;
+    [SerializeField] private AudioSource _voiceOverflightAudioSource;
+    [SerializeField] private AudioSource _voiceOverNPC1AudioSource;
+    [SerializeField] private AudioSource _voiceOverNPC2AudioSource;
     [SerializeField] private AudioSource _turbulanceAudioSource;
 
     [SerializeField] private Transform _bathroomTransitionPosition;
@@ -123,6 +126,8 @@ public class AirPlaneManager : MonoBehaviour
 
     private void PrepareBathroomBehavior()
     {
+        _flighAttendantAnim.gameObject.SetActive(true);
+
         VignetteFadeController.Instance.FadeImageInWithAction(() =>
         {
             AudioSourcesAction(true);
@@ -132,7 +137,6 @@ public class AirPlaneManager : MonoBehaviour
 
     private IEnumerator StartBathroomBehavior()
     {
-        _flighAttendantAnim.gameObject.SetActive(true);
 
         _backGroundEffect.clip = _chatterAudio;
         _backGroundEffect.Play();
@@ -140,9 +144,10 @@ public class AirPlaneManager : MonoBehaviour
         _flighAttendantAnim.SetTrigger("Shout");
         yield return new WaitForSeconds(1.7f);
 
-        _voiceOverAudioSource.clip = _flightAttendantClip;
-        _voiceOverAudioSource.Play();
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+        _voiceOverflightAudioSource.clip = _flightAttendantClip;
+        _voiceOverflightAudioSource.Play();
+        yield return new WaitForSeconds(_voiceOverflightAudioSource.clip.length + 1f);
+        _flighAttendantAnim.SetTrigger("Idle");
 
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleBathroomClip1
@@ -179,9 +184,9 @@ public class AirPlaneManager : MonoBehaviour
     public IEnumerator OnBathroomKeypadInteraction()
     {
 
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.clip = _npcPublicExplosureClip1;
-        _voiceOverAudioSource.Play();
+        yield return new WaitForSeconds(_voiceOverNPC1AudioSource.clip.length + 1f);
+        _voiceOverNPC1AudioSource.clip = _npcPublicExplosureClip1;
+        _voiceOverNPC1AudioSource.Play();
 
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleBathroomClip2
@@ -230,14 +235,14 @@ public class AirPlaneManager : MonoBehaviour
 
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.clip = _npcPublicExplosureClip1;
-        _voiceOverAudioSource.Play();
+        _voiceOverNPC1AudioSource.clip = _npcPublicExplosureClip1;
+        _voiceOverNPC1AudioSource.Play();
 
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _voiceOverAudioSource.clip = _npcPublicExplosureClip2;
-        _voiceOverAudioSource.Play();
+        yield return new WaitForSeconds(_voiceOverNPC1AudioSource.clip.length + 1f);
+        _voiceOverNPC2AudioSource.clip = _npcPublicExplosureClip2;
+        _voiceOverNPC2AudioSource.Play();
 
-        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+        yield return new WaitForSeconds(_voiceOverNPC2AudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _malePublicExplosureClip2
             : _femalePublicExplosureClip2;
