@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Rita_0009_hair1
+    second: {fileID: 2100000, guid: cf7e196cd944e6846bfcd7ea25f00501, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Rita_0009_head_tex2
     second: {fileID: 2100000, guid: 68c8afc81aa48284195ca1e12760507a, type: 2}
   - first:

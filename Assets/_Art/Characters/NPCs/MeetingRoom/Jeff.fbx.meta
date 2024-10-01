@@ -22,6 +22,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Jeff_0006_hair1
+    second: {fileID: 2100000, guid: e85608a3db5b3f849a63f379619f2f00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Jeff_0006_head1
     second: {fileID: 2100000, guid: afcee47a92512234c8f4b26fe6592d05, type: 2}
   - first:
