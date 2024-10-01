@@ -74,6 +74,7 @@ public class AirPlaneManager : MonoBehaviour
 
     private void Start()
     {
+        _flighAttendantAnim.gameObject.SetActive(false);
         StartCoroutine(StartIntroductionBehavior());
     }
 
@@ -131,6 +132,8 @@ public class AirPlaneManager : MonoBehaviour
 
     private IEnumerator StartBathroomBehavior()
     {
+        _flighAttendantAnim.gameObject.SetActive(true);
+
         _backGroundEffect.clip = _chatterAudio;
         _backGroundEffect.Play();
         yield return new WaitForSeconds(2f);
