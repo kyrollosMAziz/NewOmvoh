@@ -123,6 +123,8 @@ public class AirPlaneManager : MonoBehaviour
 
     private void PrepareBathroomBehavior()
     {
+        _flighAttendantAnim.gameObject.SetActive(true);
+
         VignetteFadeController.Instance.FadeImageInWithAction(() =>
         {
             AudioSourcesAction(true);
@@ -132,7 +134,6 @@ public class AirPlaneManager : MonoBehaviour
 
     private IEnumerator StartBathroomBehavior()
     {
-        _flighAttendantAnim.gameObject.SetActive(true);
 
         _backGroundEffect.clip = _chatterAudio;
         _backGroundEffect.Play();
@@ -143,6 +144,7 @@ public class AirPlaneManager : MonoBehaviour
         _voiceOverAudioSource.clip = _flightAttendantClip;
         _voiceOverAudioSource.Play();
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+        _flighAttendantAnim.SetTrigger("Idle");
 
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleBathroomClip1
