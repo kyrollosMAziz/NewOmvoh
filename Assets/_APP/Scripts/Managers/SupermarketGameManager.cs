@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using Bhaptics.SDK2;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManager>
 {
@@ -13,17 +15,19 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioSource _rollingAudio;
     [SerializeField] private AudioSource _userHeartbeatSfx;
     [SerializeField] private AudioSource _voiceOverAudioSource;
+   
+    [SerializeField] private AudioSource _shitAudioSource;
+    [SerializeField] private AudioSource _takaAudioSource;
 
+    
     [SerializeField] private Transform _bathroomTransitionPosition;
-
+    [SerializeField] private Volume _vignetteEffect;
 
     [Header("Heartbeat Clips")] [SerializeField]
     private AudioClip _slowHeartbeat;
 
     [SerializeField] private AudioClip _normalHeartbeat;
     [SerializeField] private AudioClip _speedHeartbeat;
-
-    [SerializeField] private AudioClip _chatterAudio;
 
     [Header("Shopping Audio Clips")] [SerializeField]
     private AudioClip _maleIntroductionClip1;
@@ -91,6 +95,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         _userHeartbeatSfx.clip = _speedHeartbeat;
+        _userHeartbeatSfx.Play();
+
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleIntroductionClip2
             : _femaleIntroductionClip2;
@@ -157,25 +163,22 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        VignetteFadeController.Instance.FadeImageOutWithAction(() =>
+        _takaAudioSource.gameObject.SetActive(true);
+        _vignetteEffect.weight = 0;
+        while (_vignetteEffect.weight < 0.6)
         {
-            StartCoroutine(StartExposureBehavior());
-            AudioSourcesAction(false);
-        });
+            _vignetteEffect.weight += Time.deltaTime / 1;
+            yield return null;
+        }
+        StartExposureBehavior();
     }
 
     #region Exposure Behavior
 
-    private IEnumerator StartExposureBehavior()
+    private void StartExposureBehavior()
     {
-        yield return new WaitForSeconds(7f);
-        VignetteFadeController.Instance.FadeImageInWithAction(() =>
-        {
-            _backGroundEffect.clip = _chatterAudio;
-            _rollingAudio.gameObject.SetActive(false);
-            AudioSourcesAction(true);
-            StartCoroutine(ExposureBehavior());
-        });
+        _rollingAudio.gameObject.SetActive(false);
+        StartCoroutine(ExposureBehavior());
     }
 
     private IEnumerator ExposureBehavior()
@@ -184,7 +187,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             ? _malePublicExplosureClip1
             : _femalePublicExplosureClip1;
         _voiceOverAudioSource.Play();
-
+        _vignetteEffect.weight = 0;
+        _shitAudioSource.gameObject.SetActive(true);
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcStartclip;
         _voiceOverAudioSource.Play();

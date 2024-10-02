@@ -8,19 +8,11 @@ public class PinsController : SceneContextSingleton<PinsController>
 {
     [SerializeField] private TextMeshProUGUI _pinText;
     [SerializeField] private List<Pin> _pins = new();
-    [SerializeField] private int counter;
-    private bool fireonce;
+    [SerializeField] private AudioSource _clickSfx;
+    private int counter;
+
     public void PinCodeClick()
     {
-        if (counter >= 2)
-        {
-            if (fireonce) return;
-           
-            SupermarketGameManager.Instance.BathroomInteractionFired();
-            fireonce = !fireonce;
-            return;
-        }
-
         var pin = PickRandomPinCode();
         UpdatePinCodeText(pin.PinCode);
         pin.OnPressed();
@@ -33,11 +25,17 @@ public class PinsController : SceneContextSingleton<PinsController>
         else
             _pinText.text += pinCode.ToString();
 
-
+        _clickSfx.Play();
         if (_pinText.text.Count() > 2)
         {
             _pinText.text = "---";
             counter += 1;
+        }
+        
+        if (counter > 2)
+        {
+            SupermarketGameManager.Instance.BathroomInteractionFired();
+            gameObject.SetActive(false);
         }
     }
 
