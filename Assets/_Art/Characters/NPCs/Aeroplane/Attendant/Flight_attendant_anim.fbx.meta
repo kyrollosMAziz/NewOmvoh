@@ -33,12 +33,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Jessica_0011_inner_eye
-    second: {fileID: 2100000, guid: 555650e220471c34faa9f0553bb1cce6, type: 2}
+    second: {fileID: 2100000, guid: 04017a7a306f53b4cbd52addd14eb6e2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Jessica_0011_outer_eyes
-    second: {fileID: 2100000, guid: 1bfcb49e748ea644fa1b1062f69c57d4, type: 2}
+    second: {fileID: 2100000, guid: 7d9e4c8b999c662478c736088d4da99c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -49,6 +49,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Jessica_0011_shoes
     second: {fileID: 2100000, guid: 8e486e01b966cfa42b95b4c9b8e1dc09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jessica_0011_teeth
+    second: {fileID: 2100000, guid: 547d6a1301baa5c44ab8ef0fd63ccc6b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

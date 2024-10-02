@@ -12,6 +12,7 @@ public class MeetingBathroomLogic : MonoBehaviour
     [SerializeField] AudioSource _runningWaterSFX;
     [SerializeField] AudioSource _footstepsEchoSFX;
     [SerializeField] AudioSource _heartbeatSlowSFX;
+    [SerializeField] AudioSource _shitBgSFX;
 
     [Header("Make It Back")]
     [SerializeField] AudioClip _makeItBackMale;
@@ -35,6 +36,7 @@ public class MeetingBathroomLogic : MonoBehaviour
     {
         _runningWaterSFX.Play();
         _footstepsEchoSFX.Play();
+        _shitBgSFX.Play();
 
         VignetteFadeController.Instance.FadeImageIn();
 

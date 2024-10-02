@@ -10,6 +10,7 @@ public class MeetingRoomManager : MonoBehaviour
     
     [Header("SFX")]
     [SerializeField] AudioSource _meetingBgSFX;
+    [SerializeField] AudioSource _calmBgSFX;
     [SerializeField] AudioSource _heartbeatNormalSFX;
     [SerializeField] AudioSource _heartbeatLouderSFX;
     [SerializeField] AudioSource _heartbeatSlowSFX;
@@ -40,6 +41,7 @@ public class MeetingRoomManager : MonoBehaviour
     void Start()
     {
         //_meetingBgSFX.Play();
+        _calmBgSFX.Play();
         VignetteFadeController.Instance.FadeImageIn();
 
         if (_gameData.playerGender == GenderEnum.Female)
