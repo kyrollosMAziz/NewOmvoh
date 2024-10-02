@@ -24,15 +24,13 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private Transform _bathroomTransitionPosition;
     [SerializeField] private Volume _vignetteEffect;
 
-    [Header("Heartbeat Clips")]
-    [SerializeField]
+    [Header("Heartbeat Clips")] [SerializeField]
     private AudioClip _slowHeartbeat;
 
     [SerializeField] private AudioClip _normalHeartbeat;
     [SerializeField] private AudioClip _speedHeartbeat;
 
-    [Header("Shopping Audio Clips")]
-    [SerializeField]
+    [Header("Shopping Audio Clips")] [SerializeField]
     private AudioClip _maleIntroductionClip1;
 
     [SerializeField] private AudioClip _maleIntroductionClip2;
@@ -42,9 +40,10 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioClip _femaleIntroductionClip2;
     [SerializeField] private AudioClip _femaleIntroductionClip3;
 
-    [Header("Bathroom Audio Clips")]
-    [SerializeField]
-    private AudioClip _maleBathroomClip1;
+    [Header("Bathroom Audio Clips")] [SerializeField]
+    private PlayGlow _glowEffect;
+
+    [SerializeField] private AudioClip _maleBathroomClip1;
 
     [SerializeField] private AudioClip _maleBathroomClip2;
     [SerializeField] private AudioClip _maleBathroomClip3;
@@ -53,8 +52,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioClip _femaleBathroomClip2;
     [SerializeField] private AudioClip _femaleBathroomClip3;
 
-    [Header("Public Exposure Clips")]
-    [SerializeField]
+    [Header("Public Exposure Clips")] [SerializeField]
     private AudioClip _malePublicExplosureClip1;
 
     [SerializeField] private AudioClip _malePublicExplosureClip2;
@@ -70,8 +68,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioClip _npcPublicExplosureClip3;
     [SerializeField] private AudioClip _npcPublicExplosureClip4;
 
-    [Header("Outro Clips")]
-    [SerializeField]
+    [Header("Outro Clips")] [SerializeField]
     private AudioClip _maleOutroClip1;
 
     [SerializeField] private AudioClip _maleOutroClip2;
@@ -86,6 +83,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             _backGroundEffect.gameObject.SetActive(true);
             _rollingAudio.gameObject.SetActive(true);
             _userHeartbeatSfx.gameObject.SetActive(true);
+            _calmAudioSource.gameObject.SetActive(true);
             StartCoroutine(StartIntroductionBehavior());
         });
     }
@@ -145,6 +143,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
 
         _doorInteraction.SetActive(true);
+        _glowEffect.Glow();
     }
 
     public void BathroomInteractionFired()
@@ -182,8 +181,6 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             _vignetteEffect.weight += Time.deltaTime / 1;
             yield return null;
         }
-        yield return new WaitForSeconds(3f);
-        _vignetteEffect.weight = 0;
     }
 
     #region Exposure Behavior
@@ -202,6 +199,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _voiceOverAudioSource.Play();
         _calmAudioSource.gameObject.SetActive(false);
         _shitAudioSource.gameObject.SetActive(true);
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcStartclip;
         _voiceOverAudioSource.Play();
@@ -258,6 +256,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     private IEnumerator StartOutroBehavior()
     {
         yield return new WaitForSeconds(4);
+        _npcMale.gameObject.SetActive(false);
+        _npcFemale.gameObject.SetActive(false);
         VignetteFadeController.Instance.FadeImageInWithAction(() =>
         {
             _backGroundEffect.gameObject.SetActive(false);
