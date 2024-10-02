@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using Bhaptics.SDK2;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR.Interaction.Toolkit;
-using DG.Tweening;
+using UnityEngine.Rendering;
 
 public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManager>
 {
@@ -17,7 +17,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioSource _voiceOverAudioSource;
 
     [SerializeField] private Transform _bathroomTransitionPosition;
-    [SerializeField] private TunnelingVignetteController _tunnelingVignette;
+    [SerializeField] private Volume _vignetteEffect;
 
     [Header("Heartbeat Clips")] [SerializeField]
     private AudioClip _slowHeartbeat;
@@ -160,8 +160,13 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
 
-        DOTween.To(() => _tunnelingVignette.defaultParameters.apertureSize,
-            x => _tunnelingVignette.defaultParameters.apertureSize = x, .8f, 1f).OnComplete(StartExposureBehavior);
+        _vignetteEffect.weight = 0;
+        while (_vignetteEffect.weight < 0.6)
+        {
+            _vignetteEffect.weight += Time.deltaTime / 1;
+            yield return null;
+        }
+        StartExposureBehavior();
     }
 
     #region Exposure Behavior
@@ -178,7 +183,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             ? _malePublicExplosureClip1
             : _femalePublicExplosureClip1;
         _voiceOverAudioSource.Play();
-
+        _vignetteEffect.weight = 0;
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcStartclip;
         _voiceOverAudioSource.Play();
