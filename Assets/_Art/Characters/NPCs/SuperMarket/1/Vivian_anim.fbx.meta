@@ -17,8 +17,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: gums1
+    second: {fileID: 2100000, guid: eb3ec0a50d91761429c967686b3f0ac5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: hair_8
-    second: {fileID: 2100000, guid: c1764588f0e8b0f4c89529b5631d89bf, type: 2}
+    second: {fileID: 2100000, guid: 6ce51e72ee247bb41b0db51a36b65f4f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -33,12 +38,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: inner_eye
-    second: {fileID: 2100000, guid: 4d5a0187c606b344f8e9919a4400122c, type: 2}
+    second: {fileID: 2100000, guid: c79ca07d5ad0b314885d2e3812411ee3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: outer_eyes
     second: {fileID: 2100000, guid: 4d5a0187c606b344f8e9919a4400122c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outer_eyes1
+    second: {fileID: 2100000, guid: 04017a7a306f53b4cbd52addd14eb6e2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -57,7 +67,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: shoes2
+    second: {fileID: 2100000, guid: ae6870240b9db8d4aab20216459635e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: teeth
+    second: {fileID: 2100000, guid: 547d6a1301baa5c44ab8ef0fd63ccc6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teeth1
     second: {fileID: 2100000, guid: 547d6a1301baa5c44ab8ef0fd63ccc6b, type: 2}
   materials:
     materialImportMode: 2

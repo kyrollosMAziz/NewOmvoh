@@ -285,6 +285,6 @@ public class AirPlaneManager : MonoBehaviour
     }
     public void LoadLobby()
     {
-        SceneManager.LoadSceneAsync("Lobby scene");
+        SceneManager.LoadSceneAsync(5);
     }
 }
