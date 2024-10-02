@@ -2281,6 +2281,7 @@ MonoBehaviour:
   _footstepsEchoSFX: {fileID: 2124432109}
   _heartbeatSlowSFX: {fileID: 680358640}
   _shitBgSFX: {fileID: 552855453}
+  _KnockingSFX: {fileID: 0}
   _makeItBackMale: {fileID: 8300000, guid: 12cd37ad61901f7448d1fac26285e4cd, type: 3}
   _makeItBackFemale: {fileID: 8300000, guid: a565a1fb173a94b4e97b6050bc76b6d4, type: 3}
   _myCoworkersMale: {fileID: 8300000, guid: 97a579778229a2f458b11467b35327ea, type: 3}
