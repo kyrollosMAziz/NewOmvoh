@@ -8,16 +8,15 @@ public class PinsController : SceneContextSingleton<PinsController>
 {
     [SerializeField] private TextMeshProUGUI _pinText;
     [SerializeField] private List<Pin> _pins = new();
-    [SerializeField] private int counter;
-    private bool fireonce;
+    [SerializeField] private AudioSource _clickSfx;
+    
+    private int counter;
     public void PinCodeClick()
     {
-        if (counter >= 2)
+        if (counter > 2)
         {
-            if (fireonce) return;
-           
             SupermarketGameManager.Instance.BathroomInteractionFired();
-            fireonce = !fireonce;
+            gameObject.SetActive(false);
             return;
         }
 

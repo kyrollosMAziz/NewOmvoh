@@ -3,6 +3,8 @@ using System.Collections;
 using Bhaptics.SDK2;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
+using DG.Tweening;
 
 public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManager>
 {
@@ -15,15 +17,13 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioSource _voiceOverAudioSource;
 
     [SerializeField] private Transform _bathroomTransitionPosition;
-
+    [SerializeField] private TunnelingVignetteController _tunnelingVignette;
 
     [Header("Heartbeat Clips")] [SerializeField]
     private AudioClip _slowHeartbeat;
 
     [SerializeField] private AudioClip _normalHeartbeat;
     [SerializeField] private AudioClip _speedHeartbeat;
-
-    [SerializeField] private AudioClip _chatterAudio;
 
     [Header("Shopping Audio Clips")] [SerializeField]
     private AudioClip _maleIntroductionClip1;
@@ -91,6 +91,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         _userHeartbeatSfx.clip = _speedHeartbeat;
+        _userHeartbeatSfx.Play();
+
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
             ? _maleIntroductionClip2
             : _femaleIntroductionClip2;
@@ -157,25 +159,17 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        VignetteFadeController.Instance.FadeImageOutWithAction(() =>
-        {
-            StartCoroutine(StartExposureBehavior());
-            AudioSourcesAction(false);
-        });
+
+        DOTween.To(() => _tunnelingVignette.defaultParameters.apertureSize,
+            x => _tunnelingVignette.defaultParameters.apertureSize = x, .8f, 1f).OnComplete(StartExposureBehavior);
     }
 
     #region Exposure Behavior
 
-    private IEnumerator StartExposureBehavior()
+    private void StartExposureBehavior()
     {
-        yield return new WaitForSeconds(7f);
-        VignetteFadeController.Instance.FadeImageInWithAction(() =>
-        {
-            _backGroundEffect.clip = _chatterAudio;
-            _rollingAudio.gameObject.SetActive(false);
-            AudioSourcesAction(true);
-            StartCoroutine(ExposureBehavior());
-        });
+        _rollingAudio.gameObject.SetActive(false);
+        StartCoroutine(ExposureBehavior());
     }
 
     private IEnumerator ExposureBehavior()
