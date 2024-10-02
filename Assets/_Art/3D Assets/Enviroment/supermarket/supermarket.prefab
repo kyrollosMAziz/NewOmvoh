@@ -196,6 +196,10 @@ PrefabInstance:
       propertyPath: m_ScaleInLightmap
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -5505933336730921918, guid: da538e2e40b6df340a60ff4c86b79c77, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 9039679383080427587, guid: 08b386fc9f59a8142bca05521774b4b1, type: 3}
     - target: {fileID: -5210842441600070050, guid: da538e2e40b6df340a60ff4c86b79c77, type: 3}
       propertyPath: m_ScaleInLightmap
       value: 10
@@ -728,6 +732,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 8810863232468545273, guid: da538e2e40b6df340a60ff4c86b79c77, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6340251063468909911, guid: ad08837476f051d4a830d5d7833d8837, type: 3}
     - target: {fileID: 8812947594451530395, guid: da538e2e40b6df340a60ff4c86b79c77, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
