@@ -1730,6 +1730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rita
       objectReference: {fileID: 0}
+    - target: {fileID: 7132912588618851649, guid: 92c7d74f7ea7dea46890f06475f7f9ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0396
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
