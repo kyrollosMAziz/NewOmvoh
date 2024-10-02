@@ -15,7 +15,11 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioSource _rollingAudio;
     [SerializeField] private AudioSource _userHeartbeatSfx;
     [SerializeField] private AudioSource _voiceOverAudioSource;
+   
+    [SerializeField] private AudioSource _shitAudioSource;
+    [SerializeField] private AudioSource _takaAudioSource;
 
+    
     [SerializeField] private Transform _bathroomTransitionPosition;
     [SerializeField] private Volume _vignetteEffect;
 
@@ -159,7 +163,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-
+        _takaAudioSource.gameObject.SetActive(true);
         _vignetteEffect.weight = 0;
         while (_vignetteEffect.weight < 0.6)
         {
@@ -184,6 +188,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             : _femalePublicExplosureClip1;
         _voiceOverAudioSource.Play();
         _vignetteEffect.weight = 0;
+        _shitAudioSource.gameObject.SetActive(true);
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcStartclip;
         _voiceOverAudioSource.Play();
