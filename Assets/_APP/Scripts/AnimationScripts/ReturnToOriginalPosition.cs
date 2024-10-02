@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -7,35 +8,33 @@ public class ReturnToOriginalPosition : MonoBehaviour
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private Transform _parent;
+    [SerializeField] private Transform _defaultTransform;
     private XRGrabInteractable grabInteractable;
-
+    private bool flag = true;
     void Start()
     {
-        // Store the original position and rotation
-        originalPosition = transform.position;
-        originalRotation = transform.rotation;
-        _parent=transform.parent;
-        // Get the XRGrabInteractable component
+        _parent = transform.parent;
         grabInteractable = GetComponent<XRGrabInteractable>();
-
-        // Register event handlers
+        grabInteractable.selectEntered.AddListener(OnSelectEntered);
         grabInteractable.selectExited.AddListener(OnSelectExited);
     }
 
-    // This method will be called when the object is ungrabbed
+    private void OnSelectEntered(SelectEnterEventArgs arg0)
+    {
+        flag = false;
+    }
+
     private void OnSelectExited(SelectExitEventArgs args)
     {
-        //Invoke(nameof(ReturnToPosition),.2f);
-        ReturnToPosition();
+        flag = true;
     }
-    public void ReturnToPosition()
-    {
-        transform.parent = _parent;
-        // Reset the position and rotation of the object
-        //transform.position = originalPosition;
-        //transform.rotation = originalRotation;
 
-        transform.DOMove(originalPosition,2);
-        transform.DORotateQuaternion(originalRotation,2);
+    private void Update()
+    {
+        if (flag)
+        {
+            transform.position = _defaultTransform.position;
+            transform.rotation = _defaultTransform.rotation;
+        }
     }
 }

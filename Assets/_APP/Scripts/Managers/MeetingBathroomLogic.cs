@@ -13,6 +13,7 @@ public class MeetingBathroomLogic : MonoBehaviour
     [SerializeField] AudioSource _footstepsEchoSFX;
     [SerializeField] AudioSource _heartbeatSlowSFX;
     [SerializeField] AudioSource _shitBgSFX;
+    [SerializeField] AudioSource _KnockingSFX;
 
     [Header("Make It Back")]
     [SerializeField] AudioClip _makeItBackMale;
@@ -54,6 +55,7 @@ public class MeetingBathroomLogic : MonoBehaviour
     {
 
         yield return new WaitForSeconds(2);
+        _KnockingSFX.Play();
         _meetingRoomAudioSource.PlayOneShot(_makeItBackMale);
         yield return new WaitForSeconds(_makeItBackMale.length + 1f);
         
@@ -82,6 +84,7 @@ public class MeetingBathroomLogic : MonoBehaviour
     public IEnumerator StartFemaleVoices()
     {
         yield return new WaitForSeconds(2);
+        _KnockingSFX.Play();
         _meetingRoomAudioSource.PlayOneShot(_makeItBackFemale);
         yield return new WaitForSeconds(_makeItBackFemale.length + 1f);
 
