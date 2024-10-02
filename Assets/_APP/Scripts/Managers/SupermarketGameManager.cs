@@ -18,7 +18,6 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
     [SerializeField] private AudioSource _shitAudioSource;
     [SerializeField] private AudioSource _takaAudioSource;
-    [SerializeField] private AudioSource _calmAudioSource;
 
 
     [SerializeField] private Transform _bathroomTransitionPosition;
@@ -200,7 +199,6 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             ? _malePublicExplosureClip1
             : _femalePublicExplosureClip1;
         _voiceOverAudioSource.Play();
-        _calmAudioSource.gameObject.SetActive(false);
         _shitAudioSource.gameObject.SetActive(true);
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _npcStartclip;
@@ -258,6 +256,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     private IEnumerator StartOutroBehavior()
     {
         yield return new WaitForSeconds(4);
+        _npcMale.gameObject.SetActive(false);
+        _npcFemale.gameObject.SetActive(false);
         VignetteFadeController.Instance.FadeImageInWithAction(() =>
         {
             _backGroundEffect.gameObject.SetActive(false);
