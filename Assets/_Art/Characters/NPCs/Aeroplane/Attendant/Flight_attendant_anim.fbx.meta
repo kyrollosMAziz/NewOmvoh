@@ -98,7 +98,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: pants1
-    second: {fileID: 2100000, guid: 8be368e9079c3ca41b0e320546b2070b, type: 2}
+    second: {fileID: 2100000, guid: 96c4ade9cd90c0e4a99bf6ac63093d45, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
