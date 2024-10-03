@@ -17,8 +17,18 @@ namespace Bhaptics.SDK2
     public class BhapticsEvent
     {
         
+        public const string RANDOMSTOMACH = "randomstomach";
+        
+        public const string HARD3 = "hard3";
+        
+        public const string CALM = "calm";
+        
         public const string FULLSTOMACH = "fullstomach";
         
-        public const string RANDOMSTOMACH = "randomstomach";
+        public const string HARD4 = "hard4";
+        
+        public const string HARD2 = "hard2";
+        
+        public const string HARD1 = "hard1";
     }
 }

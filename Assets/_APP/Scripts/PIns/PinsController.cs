@@ -12,33 +12,48 @@ public class PinsController : SceneContextSingleton<PinsController>
     [SerializeField] private PlayGlow _playGlow;
     private int counter;
 
+    private int[] myNum = { 4, 4, 2, 0 };  
+    private int arrayIndex = 0;        
+    private int fullEntryCount = 0;     
+
     public void PinCodeClick()
     {
-        _playGlow.ResetMaterial();
-        
+        _playGlow.ResetMaterial(); 
+
         var pin = PickRandomPinCode();
         UpdatePinCodeText(pin.PinCode);
         pin.OnPressed();
     }
-    
+
     private void UpdatePinCodeText(int pinCode)
     {
-        if (_pinText && _pinText.text.Contains("-"))
-            _pinText.text = pinCode.ToString();
-        else
-            _pinText.text += pinCode.ToString();
+        _clickSfx.Play();  
 
-        _clickSfx.Play();
-        if (_pinText.text.Count() > 3)
+        if (_pinText.text == "---")
         {
-            _pinText.text = "---";
-            counter += 1;
+            _pinText.text = myNum[arrayIndex].ToString();
         }
-        
-        if (counter > 2)
+        else
         {
-            SupermarketGameManager.Instance.BathroomInteractionFired();
-            gameObject.SetActive(false);
+            _pinText.text += myNum[arrayIndex].ToString();
+        }
+
+        arrayIndex++;
+
+        if (arrayIndex >= myNum.Length)
+        {
+            arrayIndex = 0; 
+            fullEntryCount++; 
+
+            _pinText.text = "---";
+
+            if (fullEntryCount >= 2)
+            {
+                fullEntryCount = 0;    
+
+                SupermarketGameManager.Instance.BathroomInteractionFired();
+                gameObject.SetActive(false); 
+            }
         }
     }
 
