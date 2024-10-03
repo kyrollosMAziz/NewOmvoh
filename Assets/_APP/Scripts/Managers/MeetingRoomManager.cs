@@ -45,7 +45,7 @@ public class MeetingRoomManager : MonoBehaviour
         //_meetingBgSFX.Play();
         VignetteFadeController.Instance.FadeImageInWithAction(() =>
         {
-            HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.CALM);
+            HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         });
 
         if (_gameData.playerGender == GenderEnum.Female)

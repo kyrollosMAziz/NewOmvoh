@@ -9,6 +9,7 @@ public class GenderSelectionUI : MonoBehaviour
     [SerializeField] private Button _maleBtn;
     [SerializeField] private Button _femaleBtn;
     [SerializeField] private GameObject _TableHandler;
+    [SerializeField] private GameObject _cube;
     [SerializeField] private GameData _gameData;
 
     private void Start()
@@ -36,6 +37,7 @@ public class GenderSelectionUI : MonoBehaviour
         yield return new WaitForSeconds(2f);
         LobbyGameManager.Instance.SkipTutorialBtnShow();
         _TableHandler.SetActive(true);
+        _cube.SetActive(true);
         LobbyGameManager.Instance.StartTutorialInformation();
         gameObject.SetActive(false);
     }

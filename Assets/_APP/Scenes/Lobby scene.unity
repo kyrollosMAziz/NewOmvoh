@@ -16068,6 +16068,7 @@ MonoBehaviour:
   _maleBtn: {fileID: 713599743}
   _femaleBtn: {fileID: 62670556}
   _TableHandler: {fileID: 7403072355948339147}
+  _cube: {fileID: 1499465851}
   _gameData: {fileID: 11400000, guid: 2e1ef80304604b34daaa9cdd27bc4bca, type: 2}
 --- !u!1 &1761766891
 GameObject:
@@ -27044,6 +27045,10 @@ PrefabInstance:
     - target: {fileID: 5268460675038366902, guid: f5afcb7f49afad5419049090809f5cc7, type: 3}
       propertyPath: m_Name
       value: Cube (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268460675038366902, guid: f5afcb7f49afad5419049090809f5cc7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5268460675038366903, guid: f5afcb7f49afad5419049090809f5cc7, type: 3}
       propertyPath: m_Enabled
@@ -50031,7 +50036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7403072355948339153
 Transform:
   m_ObjectHideFlags: 0

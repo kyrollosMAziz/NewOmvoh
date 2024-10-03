@@ -84,7 +84,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             _rollingAudio.gameObject.SetActive(true);
             _userHeartbeatSfx.gameObject.SetActive(true);
             _calmAudioSource.gameObject.SetActive(true);
-            HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.CALM);
+            HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
             StartCoroutine(StartIntroductionBehavior());
         });
     }
@@ -175,16 +175,19 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
     private IEnumerator StartHardEffect()
     {
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        //yield return new WaitForSeconds(4f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
+        //yield return new WaitForSeconds(3f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
+        //yield return new WaitForSeconds(3f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(4f);
         HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
-        yield return new WaitForSeconds(3f);
-        HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
-        yield return new WaitForSeconds(3f);
-        HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
     }
 
     private IEnumerator StartEffect()
@@ -290,7 +293,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         //close Scene
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
-            HaptticManager.Instance.StopHapticLoop();
+           // HaptticManager.Instance.StopHapticLoop();
             SceneManager.LoadSceneAsync(2);
         });
     }
