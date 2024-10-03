@@ -41,6 +41,7 @@ public class MeetingBathroomLogic : MonoBehaviour
 
         VignetteFadeController.Instance.FadeImageInWithAction(() =>
         {
+            //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
             StartCoroutine(StartHardEffect());
         });
 
@@ -55,16 +56,19 @@ public class MeetingBathroomLogic : MonoBehaviour
     }
     private IEnumerator StartHardEffect()
     {
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        //yield return new WaitForSeconds(4f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
+        //yield return new WaitForSeconds(3f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
+        //yield return new WaitForSeconds(3f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(4f);
         HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
-        yield return new WaitForSeconds(3f);
-        HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
-        yield return new WaitForSeconds(3f);
-        HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
     }
     public IEnumerator StartMaleVoices()
     {

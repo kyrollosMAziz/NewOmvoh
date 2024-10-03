@@ -1,7 +1,6 @@
+using Bhaptics.SDK2;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class pendetection : MonoBehaviour
@@ -12,7 +11,10 @@ public class pendetection : MonoBehaviour
     [SerializeField] GameData _gameData;
     bool isTaken;
 
-
+    private void Start()
+    {
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.CALM);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,7 +38,7 @@ public class pendetection : MonoBehaviour
 
         var time = _gameData.playerGender == GenderEnum.Male ? _maleAudioSource.clip.length : _femaleAudioSource.clip.length;
         yield return new WaitForSeconds(time + 5f);
-
+        HaptticManager.Instance.StopHapticLoop();
         VignetteSceneLoadManager.Instance.LoadSceneByIndex(0);
     }
 }

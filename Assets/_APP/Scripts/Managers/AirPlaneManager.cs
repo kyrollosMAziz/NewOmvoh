@@ -85,7 +85,8 @@ public class AirPlaneManager : MonoBehaviour
     private void Start()
     {
         _flighAttendantAnim.gameObject.SetActive(false);
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.CALM);
+        VignetteFadeController.Instance.FadeImageIn();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         StartCoroutine(StartIntroductionBehavior());
     }
 
@@ -207,16 +208,19 @@ public class AirPlaneManager : MonoBehaviour
     
     private IEnumerator StartHardEffect()
     {
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        //yield return new WaitForSeconds(4f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
+        //yield return new WaitForSeconds(3f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
+        //yield return new WaitForSeconds(3f);
+        //HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(4f);
         HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
-        yield return new WaitForSeconds(3f);
-        HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
-        yield return new WaitForSeconds(3f);
-        HaptticManager.Instance.StopHapticLoop();
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
     }
 
     public IEnumerator OnBathroomKeypadInteraction()
@@ -316,7 +320,7 @@ public class AirPlaneManager : MonoBehaviour
     }
     public void LoadLobby()
     {
-        HaptticManager.Instance.StopHapticLoop();
+        //HaptticManager.Instance.StopHapticLoop();
         SceneManager.LoadSceneAsync(5);
     }
 }

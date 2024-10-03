@@ -27,9 +27,9 @@ public class PinsController : SceneContextSingleton<PinsController>
 
     private void UpdatePinCodeText(int pinCode)
     {
-        _clickSfx.Play();  
+        _clickSfx.Play();
 
-        if (_pinText.text == "---")
+        if (_pinText.text.Contains("---") || _pinText.text.Contains("ERR"))
         {
             _pinText.text = myNum[arrayIndex].ToString();
         }
@@ -38,21 +38,28 @@ public class PinsController : SceneContextSingleton<PinsController>
             _pinText.text += myNum[arrayIndex].ToString();
         }
 
+        if (_pinText.text.Contains("442"))
+        {
+            _pinText.text = "---";
+            arrayIndex = 0;
+            fullEntryCount = 0;
+            return;
+        }
+
         arrayIndex++;
 
         if (arrayIndex >= myNum.Length)
         {
-            arrayIndex = 0; 
-            fullEntryCount++; 
+            arrayIndex = 0;
+            fullEntryCount++;
 
-            _pinText.text = "---";
+            _pinText.text = "<color=#FF0000>Err</color>";
 
             if (fullEntryCount >= 2)
             {
-                fullEntryCount = 0;    
-
+                fullEntryCount = 0;
                 SupermarketGameManager.Instance.BathroomInteractionFired();
-                gameObject.SetActive(false); 
+                gameObject.SetActive(false);
             }
         }
     }
@@ -63,3 +70,33 @@ public class PinsController : SceneContextSingleton<PinsController>
         return _pins[index];
     }
 }
+
+
+
+
+//       else
+//{
+//    isSetErr = true;
+//    StartCoroutine(setErr());
+//    IEnumerator setErr()
+//    {
+//        yield return new WaitForSeconds(0.01f);
+
+//        if (arrayIndex >= myNum.Length)
+//        {
+//            arrayIndex = 0;
+//            fullEntryCount++;
+
+//            _pinText.text = "<color=#FF0000>Err</color>";
+
+//            if (fullEntryCount >= 2)
+//            {
+//                fullEntryCount = 0;
+
+//                SupermarketGameManager.Instance.BathroomInteractionFired();
+//                gameObject.SetActive(false);
+//            }
+//            isSetErr = false;
+//        }
+//    }
+//}
