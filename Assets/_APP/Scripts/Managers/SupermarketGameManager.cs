@@ -24,13 +24,15 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private Transform _bathroomTransitionPosition;
     [SerializeField] private Volume _vignetteEffect;
 
-    [Header("Heartbeat Clips")] [SerializeField]
+    [Header("Heartbeat Clips")]
+    [SerializeField]
     private AudioClip _slowHeartbeat;
 
     [SerializeField] private AudioClip _normalHeartbeat;
     [SerializeField] private AudioClip _speedHeartbeat;
 
-    [Header("Shopping Audio Clips")] [SerializeField]
+    [Header("Shopping Audio Clips")]
+    [SerializeField]
     private AudioClip _maleIntroductionClip1;
 
     [SerializeField] private AudioClip _maleIntroductionClip2;
@@ -40,7 +42,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioClip _femaleIntroductionClip2;
     [SerializeField] private AudioClip _femaleIntroductionClip3;
 
-    [Header("Bathroom Audio Clips")] [SerializeField]
+    [Header("Bathroom Audio Clips")]
+    [SerializeField]
     private PlayGlow _glowEffect;
 
     [SerializeField] private AudioClip _maleBathroomClip1;
@@ -52,7 +55,8 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioClip _femaleBathroomClip2;
     [SerializeField] private AudioClip _femaleBathroomClip3;
 
-    [Header("Public Exposure Clips")] [SerializeField]
+    [Header("Public Exposure Clips")]
+    [SerializeField]
     private AudioClip _malePublicExplosureClip1;
 
     [SerializeField] private AudioClip _malePublicExplosureClip2;
@@ -68,13 +72,16 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     [SerializeField] private AudioClip _npcPublicExplosureClip3;
     [SerializeField] private AudioClip _npcPublicExplosureClip4;
 
-    [Header("Outro Clips")] [SerializeField]
+    [Header("Outro Clips")]
+    [SerializeField]
     private AudioClip _maleOutroClip1;
 
     [SerializeField] private AudioClip _maleOutroClip2;
 
     [SerializeField] private AudioClip _femaleOutroClip1;
     [SerializeField] private AudioClip _femaleOutroClip2;
+
+    [SerializeField] private GameObject _animationEffect;
 
     private void Start()
     {
@@ -163,13 +170,13 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             ? _maleBathroomClip3
             : _femaleBathroomClip3;
         _voiceOverAudioSource.Play();
-        
+
         HaptticManager.Instance.StopHapticLoop();
+        _takaAudioSource.gameObject.SetActive(true);
         StartCoroutine(StartEffect());
         StartCoroutine(StartHardEffect());
-        
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        _takaAudioSource.gameObject.SetActive(true);
         StartExposureBehavior();
     }
 
@@ -222,14 +229,23 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length);
+        StartCoroutine(ShowAnimationEffect());
         _npcMale.SetTrigger("talk");
         _npcFemale.SetTrigger("talk");
+
     }
 
     public void Npc1Talk()
     {
         _voiceOverAudioSource.clip = _npcPublicExplosureClip1;
         _voiceOverAudioSource.Play();
+    }
+
+    private IEnumerator ShowAnimationEffect()
+    {
+        _animationEffect.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        _animationEffect.SetActive(false);
     }
 
     public void Npc2Talk()
@@ -293,7 +309,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         //close Scene
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
-           // HaptticManager.Instance.StopHapticLoop();
+            // HaptticManager.Instance.StopHapticLoop();
             SceneManager.LoadSceneAsync(2);
         });
     }

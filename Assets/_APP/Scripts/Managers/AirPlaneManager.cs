@@ -9,7 +9,7 @@ public class AirPlaneManager : MonoBehaviour
 {
     [SerializeField] private GameData _gameData;
     [SerializeField] private GameObject _playerXr;
-   
+
     [SerializeField] private Volume _vignetteEffect;
 
     [SerializeField] private AudioSource _backGroundEffect;
@@ -82,6 +82,8 @@ public class AirPlaneManager : MonoBehaviour
     [SerializeField]
     private Animator _flighAttendantAnim;
 
+    [SerializeField] private GameObject _animationEffect;
+
     private void Start()
     {
         _flighAttendantAnim.gameObject.SetActive(false);
@@ -141,13 +143,22 @@ public class AirPlaneManager : MonoBehaviour
             StartCoroutine(StartBathroomBehavior());
         });
     }
-
+    private IEnumerator ShowAnimationEffect()
+    {
+        _animationEffect.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        _animationEffect.SetActive(false);
+    }
     private IEnumerator StartBathroomBehavior()
     {
 
         _backGroundEffect.clip = _chatterAudio;
         _backGroundEffect.Play();
+
         yield return new WaitForSeconds(2f);
+        StartCoroutine(ShowAnimationEffect());
+        yield return new WaitForSeconds(.5f);
+
         _flighAttendantAnim.SetTrigger("Shout");
         yield return new WaitForSeconds(1.7f);
 
@@ -171,9 +182,9 @@ public class AirPlaneManager : MonoBehaviour
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
              ? _maleBathroomClip3 : _femaleBathroomClip3;
         _voiceOverAudioSource.Play();
-       
+
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        
+
         HaptticManager.Instance.StopHapticLoop();
         _taka.gameObject.SetActive(true);
         StartCoroutine(StartEffect());
@@ -189,8 +200,8 @@ public class AirPlaneManager : MonoBehaviour
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
             StartCoroutine(StartExposureBehavior());
+            _flighAttendantAnim.gameObject.SetActive(false);
             AdjustPlayerPosition(_seatTransitionPosition);
-
             AudioSourcesAction(false);
         });
         //open door action
@@ -205,7 +216,7 @@ public class AirPlaneManager : MonoBehaviour
             yield return null;
         }
     }
-    
+
     private IEnumerator StartHardEffect()
     {
         //HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
