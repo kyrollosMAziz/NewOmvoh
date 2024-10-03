@@ -39,7 +39,10 @@ public class MeetingBathroomLogic : MonoBehaviour
         _footstepsEchoSFX.Play();
         _shitBgSFX.Play();
 
-        VignetteFadeController.Instance.FadeImageIn();
+        VignetteFadeController.Instance.FadeImageInWithAction(() =>
+        {
+            StartCoroutine(StartHardEffect());
+        });
 
         if (_gameData.playerGender == GenderEnum.Female)
         {
@@ -50,7 +53,19 @@ public class MeetingBathroomLogic : MonoBehaviour
             StartCoroutine(StartMaleVoices());
         }
     }
-
+    private IEnumerator StartHardEffect()
+    {
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        yield return new WaitForSeconds(4f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
+        yield return new WaitForSeconds(3f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
+        yield return new WaitForSeconds(3f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
+    }
     public IEnumerator StartMaleVoices()
     {
 
@@ -60,7 +75,6 @@ public class MeetingBathroomLogic : MonoBehaviour
         yield return new WaitForSeconds(_makeItBackMale.length + 1f);
         
         _meetingRoomAudioSource.PlayOneShot(_myCoworkersMale);
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(_myCoworkersMale.length + 1f);
 
         //VignetteFadeController.Instance.FadeImageOut();
@@ -105,10 +119,9 @@ public class MeetingBathroomLogic : MonoBehaviour
         _meetingRoomAudioSource.PlayOneShot(_thisCouldRuinFemale);
         yield return new WaitForSeconds(_thisCouldRuinFemale.length + 1f);
 
-        HaptticManager.Instance.StopHapticLoop();
-
+    
         //Scene ending
-
+        HaptticManager.Instance.StopHapticLoop();
         VignetteSceneLoadManager.Instance.LoadSceneByName("Aeroplane");
     }
 }

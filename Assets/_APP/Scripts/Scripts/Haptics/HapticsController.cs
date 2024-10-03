@@ -24,7 +24,7 @@ public class HapticsController : MonoBehaviour , IHapticsService
     /// </summary>
     public void StopHapticEvent()
     {
-        // BhapticsLibrary.StopInt(CurrentHapticEventId);
+        //   BhapticsLibrary.StopInt(CurrentHapticEventId);
         BhapticsLibrary.StopAll();
     }
 

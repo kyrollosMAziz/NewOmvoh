@@ -85,6 +85,7 @@ public class AirPlaneManager : MonoBehaviour
     private void Start()
     {
         _flighAttendantAnim.gameObject.SetActive(false);
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.CALM);
         StartCoroutine(StartIntroductionBehavior());
     }
 
@@ -98,7 +99,6 @@ public class AirPlaneManager : MonoBehaviour
         _turbulanceAudioSource.Play();
         yield return new WaitForSeconds(2f);
 
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         _userHeartbeatSfx.clip = _speedHeartbeat;
         _userHeartbeatSfx.Play();
         yield return new WaitForSeconds(1f);
@@ -124,7 +124,6 @@ public class AirPlaneManager : MonoBehaviour
 
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
-            HaptticManager.Instance.StopHapticLoop();
             AudioSourcesAction(false);
             AdjustPlayerPosition(_bathroomTransitionPosition);
             PrepareBathroomBehavior();
@@ -161,7 +160,6 @@ public class AirPlaneManager : MonoBehaviour
             : _femaleBathroomClip1;
         _voiceOverAudioSource.Play();
 
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
              ? _maleBathroomClip2
@@ -175,9 +173,10 @@ public class AirPlaneManager : MonoBehaviour
        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         
-        StartCoroutine(StartEffect());
+        HaptticManager.Instance.StopHapticLoop();
         _taka.gameObject.SetActive(true);
-
+        StartCoroutine(StartEffect());
+        StartCoroutine(StartHardEffect());
         _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
              ? _maleBathroomClip4 : _femaleBathroomClip4;
         _voiceOverAudioSource.Play();
@@ -204,6 +203,20 @@ public class AirPlaneManager : MonoBehaviour
             _vignetteEffect.weight += Time.deltaTime / 1;
             yield return null;
         }
+    }
+    
+    private IEnumerator StartHardEffect()
+    {
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        yield return new WaitForSeconds(4f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
+        yield return new WaitForSeconds(3f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
+        yield return new WaitForSeconds(3f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
     }
 
     public IEnumerator OnBathroomKeypadInteraction()
@@ -277,24 +290,17 @@ public class AirPlaneManager : MonoBehaviour
         _userHeartbeatSfx.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        VignetteFadeController.Instance.FadeImageOutWithAction(() =>
-        {
-            LoadLobby();
-        });
+        VignetteFadeController.Instance.FadeImageOutWithAction(LoadLobby);
     }
 
     private IEnumerator StartOutroBehavior()
     {
         _backGroundEffect.gameObject.SetActive(false);
-
-
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _userHeartbeatSfx.gameObject.SetActive(false);
-
-
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         //close Scene
-        HaptticManager.Instance.StopHapticLoop();
+        // HaptticManager.Instance.StopHapticLoop();
     }
 
     private void AdjustPlayerPosition(Transform targetTransform)
@@ -310,6 +316,7 @@ public class AirPlaneManager : MonoBehaviour
     }
     public void LoadLobby()
     {
+        HaptticManager.Instance.StopHapticLoop();
         SceneManager.LoadSceneAsync(5);
     }
 }

@@ -15,10 +15,10 @@ public class HaptticManager : ProjectContextSingleton<HaptticManager>
     private bool cancelEvent;
 
 
-    public void PlayHapticFeedback(string eventName)
-    {
-        StartCoroutine(CallHapticWithTime(10f, 2f, eventName));
-    }
+    // public void PlayHapticFeedback(string eventName)
+    // {
+    //     StartCoroutine(CallHapticWithTime(10f, 2f, eventName));
+    // }
 
     public void PlayHapticLoop(string eventName)
     {

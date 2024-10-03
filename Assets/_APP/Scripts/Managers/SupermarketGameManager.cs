@@ -84,6 +84,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             _rollingAudio.gameObject.SetActive(true);
             _userHeartbeatSfx.gameObject.SetActive(true);
             _calmAudioSource.gameObject.SetActive(true);
+            HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.CALM);
             StartCoroutine(StartIntroductionBehavior());
         });
     }
@@ -97,7 +98,6 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.RANDOMSTOMACH);
         _userHeartbeatSfx.clip = _speedHeartbeat;
         _userHeartbeatSfx.Play();
 
@@ -116,7 +116,6 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
-            HaptticManager.Instance.StopHapticLoop();
             AudioSourcesAction(false);
             AdjustPlayerPosition(_bathroomTransitionPosition);
             PrepareBathroomBehavior();
@@ -139,7 +138,6 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             : _femaleBathroomClip1;
         _voiceOverAudioSource.Play();
 
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
 
         _doorInteraction.SetActive(true);
@@ -165,12 +163,28 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
             ? _maleBathroomClip3
             : _femaleBathroomClip3;
         _voiceOverAudioSource.Play();
-
+        
+        HaptticManager.Instance.StopHapticLoop();
         StartCoroutine(StartEffect());
-
+        StartCoroutine(StartHardEffect());
+        
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         _takaAudioSource.gameObject.SetActive(true);
         StartExposureBehavior();
+    }
+
+    private IEnumerator StartHardEffect()
+    {
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD1);
+        yield return new WaitForSeconds(4f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD2);
+        yield return new WaitForSeconds(3f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD3);
+        yield return new WaitForSeconds(3f);
+        HaptticManager.Instance.StopHapticLoop();
+        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.HARD4);
     }
 
     private IEnumerator StartEffect()
@@ -237,7 +251,6 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         StartCoroutine(UserTalking());
     }
 
-
     private IEnumerator UserTalking()
     {
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length);
@@ -275,8 +288,11 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
         //close Scene
-        HaptticManager.Instance.StopHapticLoop();
-        VignetteFadeController.Instance.FadeImageOutWithAction(() => { SceneManager.LoadSceneAsync(2); });
+        VignetteFadeController.Instance.FadeImageOutWithAction(() =>
+        {
+            HaptticManager.Instance.StopHapticLoop();
+            SceneManager.LoadSceneAsync(2);
+        });
     }
 
     #endregion
