@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 0d6108f6eafafa24f9dca409242b5b64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Jessica_0011_Hair
     second: {fileID: 2100000, guid: 0d6108f6eafafa24f9dca409242b5b64, type: 2}
   - first:
@@ -58,6 +63,61 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Jessica_0011_tie1
+    second: {fileID: 2100000, guid: a07959bcb4f38f54f8cc556cab735d3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body1
+    second: {fileID: 2100000, guid: cfefddba509c0f841ae743f619eab253, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clothes_2
+    second: {fileID: 2100000, guid: 8be368e9079c3ca41b0e320546b2070b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gums
+    second: {fileID: 2100000, guid: 7731d593862c4a942bed4f5a9617a333, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head_tex
+    second: {fileID: 2100000, guid: 09149d9b4413e7e43ab728cab065e4cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inner_eye
+    second: {fileID: 2100000, guid: 04017a7a306f53b4cbd52addd14eb6e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outer_eyes
+    second: {fileID: 2100000, guid: 1bfcb49e748ea644fa1b1062f69c57d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pants1
+    second: {fileID: 2100000, guid: 8be368e9079c3ca41b0e320546b2070b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt2
+    second: {fileID: 2100000, guid: 3b3491dfbb322f248990118f6b2f8bd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes1
+    second: {fileID: 2100000, guid: 8e486e01b966cfa42b95b4c9b8e1dc09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teeth
+    second: {fileID: 2100000, guid: 1f715967f55edb54a9bb2b8a5f1ea65c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tie2
     second: {fileID: 2100000, guid: a07959bcb4f38f54f8cc556cab735d3f, type: 2}
   materials:
     materialImportMode: 2
