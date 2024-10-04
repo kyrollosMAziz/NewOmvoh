@@ -22,7 +22,7 @@ public class pendetection : MonoBehaviour
     int penCount;
     private void Start()
     {
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.CALM);
+       // HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.CALM);
         playGlow1.Glow();
     }
 
@@ -77,7 +77,7 @@ public class pendetection : MonoBehaviour
 
         var time = _gameData.playerGender == GenderEnum.Male ? _maleAudioSource.clip.length : _femaleAudioSource.clip.length;
         yield return new WaitForSeconds(time + 5f);
-        HaptticManager.Instance.StopHapticLoop();
+     //   HaptticManager.Instance.StopHapticLoop();
         VignetteSceneLoadManager.Instance.LoadSceneByIndex(0);
     }
 }
