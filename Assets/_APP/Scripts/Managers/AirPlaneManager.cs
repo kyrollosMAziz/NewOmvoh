@@ -83,7 +83,7 @@ public class AirPlaneManager : MonoBehaviour
     private Animator _flighAttendantAnim;
 
     [SerializeField] private GameObject _animationEffect;
-
+    [SerializeField] private GameObject _textHighlight;
     private void Start()
     {
         _flighAttendantAnim.gameObject.SetActive(false);
@@ -146,8 +146,11 @@ public class AirPlaneManager : MonoBehaviour
     private IEnumerator ShowAnimationEffect()
     {
         _animationEffect.SetActive(true);
+        _textHighlight.SetActive(true);
         yield return new WaitForSeconds(2f);
         _animationEffect.SetActive(false);
+        yield return new WaitForSeconds(4f);
+        _textHighlight.SetActive(false);
     }
     private IEnumerator StartBathroomBehavior()
     {
@@ -157,7 +160,7 @@ public class AirPlaneManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         StartCoroutine(ShowAnimationEffect());
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(2f);
 
         _flighAttendantAnim.SetTrigger("Shout");
         yield return new WaitForSeconds(1.7f);

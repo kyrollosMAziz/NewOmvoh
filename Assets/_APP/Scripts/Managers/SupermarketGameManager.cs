@@ -227,6 +227,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length);
         StartCoroutine(ShowAnimationEffect());
+        yield return new WaitForSeconds(2f);
         _npcMale.SetTrigger("talk");
         _npcFemale.SetTrigger("talk");
     }
@@ -243,6 +244,7 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _textEffect.SetActive(true);
         yield return new WaitForSeconds(2f);
         _animationEffect.SetActive(false);
+        yield return new WaitForSeconds(4f);
         _textEffect.SetActive(false);
     }
 
