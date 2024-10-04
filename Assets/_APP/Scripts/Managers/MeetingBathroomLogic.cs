@@ -94,7 +94,7 @@ public class MeetingBathroomLogic : MonoBehaviour
         _meetingRoomAudioSource.PlayOneShot(_thisCouldRuinMale);
         yield return new WaitForSeconds(_thisCouldRuinMale.length + 1f);
 
-        HaptticManager.Instance.StopHapticLoop();
+      //  HaptticManager.Instance.StopHapticLoop();
 
         //Scene ending
         VignetteSceneLoadManager.Instance.LoadSceneByName("Aeroplane");
@@ -107,7 +107,7 @@ public class MeetingBathroomLogic : MonoBehaviour
         yield return new WaitForSeconds(_makeItBackFemale.length + 1f);
 
         _meetingRoomAudioSource.PlayOneShot(_myCoworkersFemale);
-        HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
+        // HaptticManager.Instance.PlayHapticLoop(BhapticsEvent.FULLSTOMACH);
         yield return new WaitForSeconds(_myCoworkersFemale.length + 1f);
 
         //VignetteFadeController.Instance.FadeImageOut();
@@ -125,7 +125,7 @@ public class MeetingBathroomLogic : MonoBehaviour
 
     
         //Scene ending
-        HaptticManager.Instance.StopHapticLoop();
+      //  HaptticManager.Instance.StopHapticLoop();
         VignetteSceneLoadManager.Instance.LoadSceneByName("Aeroplane");
     }
 }

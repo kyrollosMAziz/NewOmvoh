@@ -77,9 +77,10 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
     private AudioClip _maleOutroClip1;
 
     [SerializeField] private AudioClip _maleOutroClip2;
-
+    [SerializeField] private AudioClip _maleOutroClip3;
     [SerializeField] private AudioClip _femaleOutroClip1;
     [SerializeField] private AudioClip _femaleOutroClip2;
+    [SerializeField] private AudioClip _femaleOutroClip3;
 
     [SerializeField] private GameObject _animationEffect;
 
@@ -306,6 +307,12 @@ public class SupermarketGameManager : SceneContextSingleton<SupermarketGameManag
         _voiceOverAudioSource.Play();
 
         yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+        _voiceOverAudioSource.clip = _gameData.playerGender == GenderEnum.Male
+            ? _maleOutroClip3
+            : _femaleOutroClip3;
+        _voiceOverAudioSource.Play();
+        yield return new WaitForSeconds(_voiceOverAudioSource.clip.length + 1f);
+
         //close Scene
         VignetteFadeController.Instance.FadeImageOutWithAction(() =>
         {
