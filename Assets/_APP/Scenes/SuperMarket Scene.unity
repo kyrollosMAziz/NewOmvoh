@@ -9407,10 +9407,10 @@ MonoBehaviour:
   _npcPublicExplosureClip4: {fileID: 8300000, guid: d59e424be1db5aa43b8586c62bc2e99d, type: 3}
   _maleOutroClip1: {fileID: 8300000, guid: 392f1c4da5710d1468b535964318dadb, type: 3}
   _maleOutroClip2: {fileID: 8300000, guid: 89f99f1947c5f8b48bbff6ab2ee8ab94, type: 3}
-  _maleOutroClip3: {fileID: 8300000, guid: 94c458c8cc66cc545a808f169e5508d5, type: 3}
+  _maleOutroClip3: {fileID: 8300000, guid: 8ee57750acbbb4943bb1b51b39c48f91, type: 3}
   _femaleOutroClip1: {fileID: 8300000, guid: 676ffa82cee1ed3408a9aef7b45961a3, type: 3}
   _femaleOutroClip2: {fileID: 8300000, guid: dbfc94e1da4a06d4f9e9af7e1abdbcae, type: 3}
-  _femaleOutroClip3: {fileID: 8300000, guid: ed5396e29b786eb48af7d4cf064ef3f3, type: 3}
+  _femaleOutroClip3: {fileID: 8300000, guid: 04296154af23d90439fcb79f6473fa9d, type: 3}
   _animationEffect: {fileID: 980872752}
   _textEffect: {fileID: 540379637}
 --- !u!1001 &1883943061
